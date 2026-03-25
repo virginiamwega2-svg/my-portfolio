@@ -126,7 +126,7 @@ export default function Projects() {
         {/* Cards grid — 2-col on md+, so each card has room to breathe */}
         <div className="grid md:grid-cols-2 gap-5">
           {PROJECTS.map((p, i) => (
-            <AnimateIn key={p.number} delay={i * 100}>
+            <AnimateIn key={p.number} variant="scale" delay={i * 100}>
               <article className="group flex flex-col h-full rounded-2xl overflow-hidden border border-border bg-canvas transition-all duration-500 hover:border-accent/30 hover:-translate-y-1.5 hover:shadow-[0_24px_64px_rgba(0,0,0,0.55)]">
 
                 {/* Thumbnail strip */}
@@ -165,7 +165,7 @@ export default function Projects() {
                     {p.stack.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-0.5 rounded-full text-xs font-mono bg-elevated border border-border text-text-secondary"
+                        className="badge badge-warm"
                       >
                         {tag}
                       </span>

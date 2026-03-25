@@ -41,7 +41,7 @@ export default function Hero() {
           className="hero-fade-up text-text-secondary text-sm font-medium tracking-[0.22em] uppercase mb-5"
           style={{ animationDelay: "0.08s" }}
         >
-          John Doe
+          Virginia Mwega
         </p>
 
         {/* Role headline */}
@@ -85,6 +85,14 @@ export default function Hero() {
             className="inline-flex items-center px-8 py-4 border border-border text-text-secondary font-semibold rounded-full hover:border-accent hover:text-accent transition-all duration-300"
           >
             Contact Me
+          </a>
+          <a
+            href="/virginia-mwega-cv.pdf"
+            download
+            className="inline-flex items-center gap-2 px-8 py-4 border border-border text-text-secondary font-semibold rounded-full hover:border-accent/50 hover:text-text-primary transition-all duration-300"
+          >
+            <span className="text-text-tertiary text-xs">↓</span>
+            Download CV
           </a>
         </div>
       </div>

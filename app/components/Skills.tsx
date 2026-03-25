@@ -83,7 +83,7 @@ export default function Skills() {
         {/* Category cards */}
         <div className="grid md:grid-cols-3 gap-5 mb-8">
           {CATEGORIES.map((cat, i) => (
-            <AnimateIn key={cat.title} delay={i * 120}>
+            <AnimateIn key={cat.title} variant="scale" delay={i * 120}>
               <div className="p-7 rounded-2xl bg-surface border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
                 <div className="flex items-center gap-3 mb-6">
                   <span className="text-accent text-lg leading-none">
@@ -95,7 +95,7 @@ export default function Skills() {
                   {cat.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-sm rounded-full bg-elevated border border-border text-text-secondary hover:border-accent/40 hover:text-accent transition-all duration-200 cursor-default"
+                      className="badge badge-warm text-sm py-1.5 px-3 hover:border-accent/50 hover:text-accent hover:bg-accent-muted transition-all duration-200 cursor-default"
                     >
                       {skill}
                     </span>
@@ -107,7 +107,7 @@ export default function Skills() {
         </div>
 
         {/* Pillars strip */}
-        <AnimateIn delay={400}>
+        <AnimateIn variant="fade" delay={400}>
           <div className="rounded-2xl bg-surface border border-border p-8">
             <div className="grid sm:grid-cols-3 gap-8 text-center sm:text-left">
               {PILLARS.map((pillar, i) => (

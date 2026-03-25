@@ -1,94 +1,670 @@
 @import "tailwindcss";
 
+/* ══════════════════════════════════════════════════════════════
+   DESIGN SYSTEM — Dark Premium Portfolio
+   ══════════════════════════════════════════════════════════════
+
+   Token layers
+   ─────────────────────────────────────────────────────────────
+   canvas      #0D0C0B   Deepest background — page base
+   surface     #111010   Sections that sit one level up
+   elevated    #171514   Cards, inputs, active states
+   overlay     #1E1B19   Modals, tooltips, dropdowns
+
+   Accent scale (warm gold)
+   ─────────────────────────────────────────────────────────────
+   accent        #C9A96E   Primary — CTAs, highlights, active states
+   accent-dim    #A07E47   Pressed / hover darkening
+   accent-warm   #8B6535   Secondary — tags, subtle borders, decorative
+   accent-bronze #5C3D1A   Tertiary — warm-tinted surface backgrounds
+
+   Text hierarchy
+   ─────────────────────────────────────────────────────────────
+   text-primary    #F0EBE3   Headings, labels
+   text-secondary  #7A706A   Body copy, nav links
+   text-tertiary   #3A3633   Placeholders, timestamps
+   text-inverse    #0D0C0B   Text on accent backgrounds
+
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Runtime CSS variables (available outside @theme) ──────── */
 :root {
   --background: #0D0C0B;
-  --foreground: #F5F0EB;
+  --foreground: #F0EBE3;
 }
 
+/* ── Tailwind v4 Design Tokens ──────────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
 
-  /* Surface layers */
-  --color-canvas:   #0D0C0B;
-  --color-surface:  #131110;
-  --color-elevated: #1A1714;
+  /* ┌── Backgrounds ─────────────────────────────────────────┐ */
+  --color-background:  var(--background);
+  --color-foreground:  var(--foreground);
+  --color-canvas:      #0D0C0B;
+  --color-surface:     #111010;
+  --color-elevated:    #171514;
+  --color-overlay:     #1E1B19;
 
-  /* Borders */
-  --color-border:        #252220;
-  --color-border-subtle: #1C1916;
+  /* ┌── Borders ─────────────────────────────────────────────┐ */
+  --color-border:        #222120;
+  --color-border-subtle: #191716;
+  --color-border-focus:  rgba(201, 169, 110, 0.45);
 
-  /* Text hierarchy */
-  --color-text-primary:   #F5F0EB;
+  /* ┌── Text ─────────────────────────────────────────────────┐ */
+  --color-text-primary:   #F0EBE3;
   --color-text-secondary: #7A706A;
-  --color-text-tertiary:  #3E3A38;
+  --color-text-tertiary:  #3A3633;
+  --color-text-inverse:   #0D0C0B;
 
-  /* Warm gold accent */
-  --color-accent:     #C9A96E;
-  --color-accent-dim: #9E7A42;
+  /* ┌── Accent — Warm Gold ───────────────────────────────────┐ */
+  --color-accent:              #C9A96E;   /* primary gold          */
+  --color-accent-dim:          #A07E47;   /* hover / pressed       */
+  --color-accent-muted:        rgba(201, 169, 110, 0.10);
+  --color-accent-glow:         rgba(201, 169, 110, 0.22);
 
+  /* ┌── Accent 2 — Muted Amber (secondary) ──────────────────┐ */
+  --color-accent-warm:         #8B6535;   /* tags, secondary labels */
+  --color-accent-warm-dim:     #6B4C26;   /* hover on warm elements */
+  --color-accent-warm-muted:   rgba(139, 101,  53, 0.10);
+  --color-accent-warm-subtle:  rgba(139, 101,  53, 0.06);
+
+  /* ┌── Accent 3 — Deep Bronze (surfaces) ───────────────────┐ */
+  --color-accent-bronze:       #5C3D1A;   /* warm-tinted surfaces  */
+  --color-accent-bronze-subtle: rgba(92,  61,  26, 0.25);
+
+  /* ┌── Semantic States ─────────────────────────────────────┐ */
+  --color-success:        #4ADE80;
+  --color-success-subtle: rgba(74,  222, 128, 0.10);
+  --color-warning:        #FBBF24;
+  --color-warning-subtle: rgba(251, 191,  36, 0.10);
+  --color-error:          #F87171;
+  --color-error-subtle:   rgba(248, 113, 113, 0.10);
+  --color-info:           #60A5FA;
+  --color-info-subtle:    rgba(96,  165, 250, 0.10);
+
+  /* ┌── Typography ───────────────────────────────────────────┐ */
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  /* ┌── Shadows ─────────────────────────────────────────────┐ */
+  --shadow-sm:      0 1px  4px  rgba(0, 0, 0, 0.40);
+  --shadow-md:      0 4px  16px rgba(0, 0, 0, 0.45);
+  --shadow-lg:      0 12px 40px rgba(0, 0, 0, 0.50);
+  --shadow-xl:      0 24px 64px rgba(0, 0, 0, 0.55);
+  --shadow-card:    0 12px 48px rgba(0, 0, 0, 0.50);
+  --shadow-glow:    0 0   40px  rgba(201, 169, 110, 0.22);
+  --shadow-glow-sm: 0 0   20px  rgba(201, 169, 110, 0.14);
 }
 
-/* ─── Global base ────────────────────────────────────────── */
 
-html {
-  scroll-behavior: smooth;
-}
+/* ══════════════════════════════════════════════════════════════
+   GLOBAL BASE
+   ══════════════════════════════════════════════════════════════ */
+
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color:      var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing:  antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── Scrollbar ───────────────────────────────────────────── */
+/* ── Scrollbar ──────────────────────────────────────────────── */
+::-webkit-scrollbar              { width: 3px; }
+::-webkit-scrollbar-track        { background: #0D0C0B; }
+::-webkit-scrollbar-thumb        { background: #252220; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover  { background: #C9A96E; }
 
-::-webkit-scrollbar        { width: 3px; }
-::-webkit-scrollbar-track  { background: #0D0C0B; }
-::-webkit-scrollbar-thumb  { background: #252220; border-radius: 2px; }
-::-webkit-scrollbar-thumb:hover { background: #C9A96E; }
 
-/* ─── Scroll-reveal (IntersectionObserver driven) ────────── */
+/* ══════════════════════════════════════════════════════════════
+   TYPOGRAPHY SYSTEM
+   ══════════════════════════════════════════════════════════════ */
 
+/* Display — hero headlines */
+.type-display {
+  font-size: clamp(3.5rem, 10vw, 7.5rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 0.88;
+  color: var(--color-text-primary);
+}
+
+/* Section heading — h2 level */
+.type-heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+/* Card / sub-section heading — h3 level */
+.type-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  color: var(--color-text-primary);
+}
+
+/* Body — readable long-form */
+.type-body {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+.type-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+}
+
+/* Small — captions, meta */
+.type-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* Eyebrow — section labels, category tags */
+.type-eyebrow {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+}
+
+/* Mono — code, numbers, badges */
+.type-mono {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   SPACING SYSTEM
+   ══════════════════════════════════════════════════════════════
+   Built on a 4px base grid (0.25rem increments).
+   Named spacings for semantic layout use.
+
+   --sp-1   4px    micro gap (icon ↔ label)
+   --sp-2   8px    tight gap (tag pills, list items)
+   --sp-3   12px   small gap (form fields)
+   --sp-4   16px   base gap (card internals)
+   --sp-5   20px   medium gap
+   --sp-6   24px   card padding (default)
+   --sp-8   32px   section internal rhythm
+   --sp-10  40px   between sub-sections
+   --sp-12  48px   between major blocks
+   --sp-16  64px   section top/bottom (mobile)
+   --sp-24  96px   section top/bottom (desktop)
+   --sp-32  128px  hero padding
+
+   Usage:  padding: var(--sp-6);  gap: var(--sp-4);
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  --sp-1:  0.25rem;
+  --sp-2:  0.5rem;
+  --sp-3:  0.75rem;
+  --sp-4:  1rem;
+  --sp-5:  1.25rem;
+  --sp-6:  1.5rem;
+  --sp-7:  1.75rem;
+  --sp-8:  2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+  --sp-24: 6rem;
+  --sp-32: 8rem;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   BUTTON SYSTEM
+   ══════════════════════════════════════════════════════════════ */
+
+/* Base — apply to all buttons */
+.btn {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             var(--sp-2);
+  font-weight:     600;
+  font-size:       0.875rem;
+  line-height:     1;
+  border-radius:   9999px;
+  border:          none;
+  text-decoration: none;
+  white-space:     nowrap;
+  cursor:          pointer;
+  transition:      all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sizes */
+.btn-sm  { padding: 0.5rem  1.25rem; font-size: 0.75rem; }
+.btn-md  { padding: 0.875rem 2rem; }
+.btn-lg  { padding: 1rem    2.25rem; font-size: 1rem; }
+
+/* Primary — filled gold */
+.btn-primary {
+  background: var(--color-accent);
+  color:      var(--color-text-inverse);
+}
+.btn-primary:hover {
+  background:  var(--color-accent-dim);
+  box-shadow:  var(--shadow-glow);
+  transform:   translateY(-1px);
+}
+.btn-primary:active { transform: translateY(0); }
+
+/* Ghost — border only */
+.btn-ghost {
+  background: transparent;
+  border:     1px solid var(--color-border);
+  color:      var(--color-text-secondary);
+}
+.btn-ghost:hover {
+  border-color: var(--color-accent);
+  color:        var(--color-accent);
+}
+
+/* Outline — accent border */
+.btn-outline {
+  background:   transparent;
+  border:       1px solid var(--color-accent);
+  color:        var(--color-accent);
+}
+.btn-outline:hover {
+  background: var(--color-accent-muted);
+}
+
+/* Icon button — square / circle */
+.btn-icon {
+  padding:      0.75rem;
+  border-radius: 0.875rem;
+  background:   transparent;
+  border:       1px solid var(--color-border);
+  color:        var(--color-text-secondary);
+  transition:   all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-icon:hover {
+  border-color: var(--color-accent);
+  color:        var(--color-accent);
+  background:   var(--color-accent-muted);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   CARD SYSTEM
+   ══════════════════════════════════════════════════════════════ */
+
+/* Base card */
+.card {
+  border-radius: 1.25rem;
+  border:        1px solid var(--color-border);
+  background:    var(--color-canvas);
+  overflow:      hidden;
+}
+
+/* Surface variant */
+.card-surface { background: var(--color-surface); }
+.card-elevated { background: var(--color-elevated); }
+
+/* Padding */
+.card-body    { padding: var(--sp-6); }
+.card-body-lg { padding: var(--sp-7); }
+.card-body-sm { padding: var(--sp-4); }
+
+/* Interactive hover */
+.card-interactive {
+  transition: border-color 400ms, transform 400ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 400ms;
+}
+.card-interactive:hover {
+  border-color: color-mix(in srgb, var(--color-accent) 30%, transparent);
+  transform:    translateY(-6px);
+  box-shadow:   var(--shadow-xl);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   BADGE / TAG SYSTEM
+   ══════════════════════════════════════════════════════════════ */
+
+/* Base badge */
+.badge {
+  display:      inline-flex;
+  align-items:  center;
+  gap:          var(--sp-2);
+  padding:      0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size:    0.75rem;
+  font-family:  var(--font-mono);
+  font-weight:  400;
+  border:       1px solid var(--color-border);
+  background:   var(--color-elevated);
+  color:        var(--color-text-secondary);
+  white-space:  nowrap;
+}
+
+/* Variants */
+.badge-accent {
+  border-color: color-mix(in srgb, var(--color-accent) 28%, transparent);
+  background:   var(--color-accent-muted);
+  color:        var(--color-accent);
+}
+/* Secondary accent — for tech tags, "currently working with", etc. */
+.badge-warm {
+  border-color: color-mix(in srgb, var(--color-accent-warm) 35%, transparent);
+  background:   var(--color-accent-warm-muted);
+  color:        var(--color-accent-warm);
+}
+.badge-success {
+  border-color: rgba(74, 222, 128, 0.28);
+  background:   var(--color-success-subtle);
+  color:        var(--color-success);
+}
+.badge-warning {
+  border-color: rgba(251, 191, 36, 0.28);
+  background:   var(--color-warning-subtle);
+  color:        var(--color-warning);
+}
+.badge-error {
+  border-color: rgba(248, 113, 113, 0.28);
+  background:   var(--color-error-subtle);
+  color:        var(--color-error);
+}
+.badge-info {
+  border-color: rgba(96, 165, 250, 0.28);
+  background:   var(--color-info-subtle);
+  color:        var(--color-info);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   SECTION LAYOUT SYSTEM
+   ══════════════════════════════════════════════════════════════ */
+
+/* Standard section vertical padding */
+.section { padding-top: var(--sp-32); padding-bottom: var(--sp-32); }
+
+/* Max-width container + gutter */
+.container-portfolio {
+  max-width: 72rem;  /* 1152px */
+  margin-left:  auto;
+  margin-right: auto;
+  padding-left:  var(--sp-6);
+  padding-right: var(--sp-6);
+}
+
+/* Section eyebrow label  e.g.  01 ─── Selected Work */
+.section-label {
+  display:     flex;
+  align-items: center;
+  gap:         var(--sp-4);
+  margin-bottom: var(--sp-6);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(
+    to right,
+    var(--color-accent),
+    var(--color-accent-dim)
+  );
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   FORM ELEMENTS
+   ══════════════════════════════════════════════════════════════ */
+
+.input {
+  width:         100%;
+  padding:       0.75rem 1rem;
+  border-radius: 0.75rem;
+  border:        1px solid var(--color-border);
+  background:    var(--color-elevated);
+  color:         var(--color-text-primary);
+  font-size:     0.875rem;
+  font-family:   var(--font-sans);
+  outline:       none;
+  transition:    border-color 200ms, box-shadow 200ms;
+}
+.input::placeholder { color: var(--color-text-tertiary); }
+.input:focus {
+  border-color: var(--color-accent);
+  box-shadow:   0 0 0 3px var(--color-accent-muted);
+}
+
+.textarea {
+  resize:     vertical;
+  min-height: 140px;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   DIVIDER
+   ══════════════════════════════════════════════════════════════ */
+
+.divider {
+  height:     1px;
+  background: var(--color-border);
+}
+.divider-subtle {
+  height:     1px;
+  background: var(--color-border-subtle);
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   ANIMATION SYSTEM
+   ══════════════════════════════════════════════════════════════
+
+   Scroll-reveal variants — all driven by IntersectionObserver
+   adding .in-view to the element. Use via <AnimateIn variant="…">
+
+   Variant    Starting state
+   ─────────────────────────
+   up         translateY(28px)   default — most content
+   left       translateX(-24px)  left column / left-aligned blocks
+   right      translateX(24px)   right column / right-aligned blocks
+   fade       opacity only       subtle — images, already-large elements
+   scale      scale(0.96)        cards, modals, popping-in elements
+
+   ══════════════════════════════════════════════════════════════ */
+
+/* ── Shared transition curve ────────────────────────────────── */
+:root {
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --reveal-duration: 0.85s;
+}
+
+/* ── Scroll-reveal: base states ─────────────────────────────── */
 .animate-reveal {
-  opacity: 0;
+  opacity:   0;
   transform: translateY(28px);
   transition:
-    opacity  0.85s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity   var(--reveal-duration) var(--ease-spring),
+    transform var(--reveal-duration) var(--ease-spring);
 }
 
-.animate-reveal.in-view {
-  opacity: 1;
-  transform: translateY(0);
+.animate-reveal-left {
+  opacity:   0;
+  transform: translateX(-24px);
+  transition:
+    opacity   var(--reveal-duration) var(--ease-spring),
+    transform var(--reveal-duration) var(--ease-spring);
 }
 
-/* ─── Hero CSS-only entrance animations ──────────────────── */
+.animate-reveal-right {
+  opacity:   0;
+  transform: translateX(24px);
+  transition:
+    opacity   var(--reveal-duration) var(--ease-spring),
+    transform var(--reveal-duration) var(--ease-spring);
+}
 
+.animate-reveal-fade {
+  opacity:    0;
+  transition: opacity 0.7s ease;
+}
+
+.animate-reveal-scale {
+  opacity:   0;
+  transform: scale(0.96);
+  transition:
+    opacity   0.8s var(--ease-spring),
+    transform 0.8s var(--ease-spring);
+}
+
+/* ── Triggered state — same for every variant ───────────────── */
+.animate-reveal.in-view,
+.animate-reveal-left.in-view,
+.animate-reveal-right.in-view,
+.animate-reveal-fade.in-view,
+.animate-reveal-scale.in-view {
+  opacity:   1;
+  transform: none;
+}
+
+/* ── Hero CSS-only entrance (above the fold — no JS needed) ── */
 @keyframes heroFadeUp {
   from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 @keyframes heroPulse {
   0%, 100% { opacity: 1; }
-  50%       { opacity: 0.4; }
+  50%       { opacity: 0.35; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes shimmerSweep {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
 }
 
-.hero-fade-up {
-  opacity: 0;
-  animation: heroFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+/* Page-level entrance — wraps <main> */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.page-enter {
+  animation: pageFadeIn 0.5s var(--ease-smooth) both;
 }
 
-.status-dot {
-  animation: heroPulse 2s ease-in-out infinite;
+.hero-fade-up   { opacity: 0; animation: heroFadeUp 0.9s var(--ease-spring) both; }
+.hero-fade-in   { opacity: 0; animation: heroFadeIn  0.7s ease both; }
+.hero-scale-in  { opacity: 0; animation: scaleIn     0.8s var(--ease-spring) both; }
+.status-dot     { animation: heroPulse 2.2s ease-in-out infinite; }
+
+/* Shimmer loading skeleton */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-elevated) 25%,
+    var(--color-overlay)  50%,
+    var(--color-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmerSweep 1.6s infinite;
 }
 
-/* ─── Decorative utilities ───────────────────────────────── */
+/* ── Hover utilities ────────────────────────────────────────── */
 
-/* Subtle dot-grid used on project cards */
+/* Gentle lift — lighter than card-interactive */
+.hover-lift {
+  transition: transform 300ms var(--ease-smooth), box-shadow 300ms var(--ease-smooth);
+}
+.hover-lift:hover {
+  transform:  translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Accent glow ring */
+.hover-glow {
+  transition: box-shadow 300ms var(--ease-smooth);
+}
+.hover-glow:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+/* ── Animated underline draw — for inline text links ────────── */
+/*  Usage:  <a class="link-underline">Read more</a>            */
+.link-underline {
+  position:       relative;
+  text-decoration: none;
+}
+.link-underline::after {
+  content:          '';
+  position:         absolute;
+  bottom:           -1px;
+  left:             0;
+  width:            0;
+  height:           1px;
+  background:       var(--color-accent);
+  transition:       width 250ms var(--ease-smooth);
+}
+.link-underline:hover::after { width: 100%; }
+
+/* ── Gradient text animation ────────────────────────────────── */
+@keyframes gradientShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+.gradient-text-animated {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(
+    270deg,
+    var(--color-accent),
+    var(--color-accent-dim),
+    #e8c98a,
+    var(--color-accent)
+  );
+  background-size:       300% 300%;
+  animation:             gradientShift 5s ease infinite;
+}
+
+/* ── CSS counter animation ──────────────────────────────────── */
+/*  Numbers count up when .in-view is added by IntersectionObserver.
+    Use with AnimateIn variant="fade" on the stat container.       */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.stat-number {
+  opacity:   0;
+  animation: none;
+}
+.stat-number.in-view {
+  opacity:   1;
+  animation: countUp 0.6s var(--ease-spring) both;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   DECORATIVE UTILITIES
+   ══════════════════════════════════════════════════════════════ */
+
+/* Subtle dot-grid texture (used on cards & hero) */
 .dot-grid {
   background-image: radial-gradient(
     circle,
@@ -98,9 +674,38 @@ body {
   background-size: 20px 20px;
 }
 
-/* Grain noise overlay for hero */
+/* Film-grain noise overlay */
 .grain {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 200px 200px;
+  background-size:   200px 200px;
+}
+
+/* Accent glow orb */
+.glow-orb {
+  border-radius: 9999px;
+  background:    var(--color-accent-glow);
+  filter:        blur(80px);
+  pointer-events: none;
+  position:      absolute;
+}
+
+/* Focus ring — keyboard navigation */
+.focus-ring:focus-visible {
+  outline:        2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius:  4px;
+}
+
+/* ── Fixed-navbar scroll offset ────────────────────────────── */
+section[id] { scroll-margin-top: 80px; }
+
+/* ── Respect reduced-motion OS preference ───────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:       0.01ms !important;
+    animation-iteration-count: 1     !important;
+    transition-duration:      0.01ms !important;
+    scroll-behavior:          auto   !important;
+  }
 }
