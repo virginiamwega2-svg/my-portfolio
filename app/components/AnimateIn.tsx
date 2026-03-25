@@ -44,6 +44,12 @@ export default function AnimateIn({
     const el = ref.current;
     if (!el) return;
 
+    // Fallback for browsers without IntersectionObserver (older mobile)
+    if (typeof IntersectionObserver === "undefined") {
+      el.classList.add("in-view");
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -53,7 +59,10 @@ export default function AnimateIn({
           el.classList.remove("in-view");
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -48px 0px" }
+      // threshold:0  — fire as soon as any pixel enters the viewport
+      // rootMargin   — percentage-based so it scales with screen height;
+      //                avoids cutting off elements on short mobile screens
+      { threshold: 0, rootMargin: "0px 0px -6% 0px" }
     );
 
     observer.observe(el);
