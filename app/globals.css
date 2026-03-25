@@ -643,6 +643,22 @@ body {
   animation:             gradientShift 5s ease infinite;
 }
 
+/* ── Typewriter cursor blink ────────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.typewriter-cursor {
+  display:          inline-block;
+  width:            0.12em;
+  height:           0.9em;
+  background:       var(--color-accent);
+  margin-left:      0.08em;
+  vertical-align:   middle;
+  border-radius:    1px;
+  animation:        blink 1.1s step-start infinite;
+}
+
 /* ── CSS counter animation ──────────────────────────────────── */
 /*  Numbers count up when .in-view is added by IntersectionObserver.
     Use with AnimateIn variant="fade" on the stat container.       */

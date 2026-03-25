@@ -1,11 +1,16 @@
 // Hero uses pure CSS keyframe animations so it can stay a Server Component
-// (no IntersectionObserver needed — everything is above the fold on load)
+// (no IntersectionObserver needed — everything is above the fold on load).
+// Typewriter and CountUp are Client Components imported here; Next.js
+// App Router renders them as hydration boundaries automatically.
+
+import Typewriter from "./Typewriter";
+import CountUp    from "./CountUp";
 
 const STATS = [
-  { value: "3+", label: "Years Experience" },
-  { value: "20+", label: "Projects Delivered" },
-  { value: "15+", label: "Happy Clients" },
-  { value: "100%", label: "Commitment" },
+  { end: 3,   suffix: "+", label: "Years Experience" },
+  { end: 20,  suffix: "+", label: "Projects Delivered" },
+  { end: 15,  suffix: "+", label: "Happy Clients" },
+  { end: 100, suffix: "%", label: "Commitment" },
 ];
 
 export default function Hero() {
@@ -17,8 +22,8 @@ export default function Hero() {
     >
       {/* Ambient glow orbs */}
       <div className="absolute inset-0 pointer-events-none select-none">
-        <div className="absolute top-1/4 right-1/3 w-[520px] h-[520px] rounded-full bg-accent/[0.05] blur-3xl" />
-        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 rounded-full bg-accent/[0.03] blur-3xl" />
+        <div className="absolute top-1/4 right-1/3 w-130 h-130 rounded-full bg-accent/5 blur-3xl" />
+        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 rounded-full bg-accent/3 blur-3xl" />
       </div>
 
       {/* Grain overlay */}
@@ -51,9 +56,10 @@ export default function Hero() {
         >
           Software
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-dim">
-            Engineer
-          </span>
+          <Typewriter
+            words={["Engineer", "Developer", "Builder"]}
+            className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim"
+          />
           <span className="text-text-tertiary">.</span>
         </h1>
 
@@ -107,7 +113,7 @@ export default function Hero() {
               style={{ animationDelay: `${0.48 + i * 0.08}s` }}
             >
               <div className="text-3xl font-bold text-text-primary font-mono mb-1">
-                {s.value}
+                <CountUp end={s.end} suffix={s.suffix} />
               </div>
               <div className="text-sm text-text-secondary">{s.label}</div>
             </div>

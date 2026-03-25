@@ -1,9 +1,10 @@
 import AnimateIn from "./AnimateIn";
+import CountUp   from "./CountUp";
 
 const STATS = [
-  { value: "3+",   label: "Years\nExperience" },
-  { value: "20+",  label: "Projects\nDelivered" },
-  { value: "15+",  label: "Happy\nClients" },
+  { end: 3,  suffix: "+", label: "Years\nExperience" },
+  { end: 20, suffix: "+", label: "Projects\nDelivered" },
+  { end: 15, suffix: "+", label: "Happy\nClients" },
 ];
 
 const FOCUS = [
@@ -168,7 +169,7 @@ export default function About() {
                 <AnimateIn key={s.value} variant="right" delay={200 + i * 70}>
                   <div className="p-4 rounded-xl bg-surface border border-border text-center hover:border-accent/40 transition-colors duration-300">
                     <div className="text-2xl font-bold text-text-primary font-mono mb-0.5">
-                      {s.value}
+                      <CountUp end={s.end} suffix={s.suffix} />
                     </div>
                     <div className="text-[0.65rem] text-text-secondary whitespace-pre-line leading-relaxed">
                       {s.label}
