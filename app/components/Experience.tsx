@@ -64,7 +64,7 @@ export default function Experience() {
         <AnimateIn variant="left" delay={80}>
           <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight mb-16">
             Where I&apos;ve{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-dim">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
               shipped things.
             </span>
           </h2>

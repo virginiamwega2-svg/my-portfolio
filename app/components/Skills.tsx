@@ -64,7 +64,7 @@ export default function Skills() {
         {/* Section label */}
         <AnimateIn>
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-mono text-sm text-accent">03</span>
+            <span className="font-mono text-sm text-accent">04</span>
             <span className="h-px w-10 bg-border" />
             <span className="text-xs uppercase tracking-[0.2em] text-text-secondary">
               Tech Stack

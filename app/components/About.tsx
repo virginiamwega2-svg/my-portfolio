@@ -59,7 +59,7 @@ export default function About() {
               <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight mb-8">
                 I build software that
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-dim">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
                   earns its keep.
                 </span>
               </h2>
@@ -166,7 +166,7 @@ export default function About() {
             {/* Stats */}
             <div className="grid grid-cols-3 gap-3">
               {STATS.map((s, i) => (
-                <AnimateIn key={s.value} variant="right" delay={200 + i * 70}>
+                <AnimateIn key={s.label} variant="right" delay={200 + i * 70}>
                   <div className="p-4 rounded-xl bg-surface border border-border text-center hover:border-accent/40 transition-colors duration-300">
                     <div className="text-2xl font-bold text-text-primary font-mono mb-0.5">
                       <CountUp end={s.end} suffix={s.suffix} />

@@ -16,7 +16,7 @@ export default function Contact() {
         {/* Section label */}
         <AnimateIn>
           <div className="flex items-center gap-4 mb-16">
-            <span className="font-mono text-sm text-accent">04</span>
+            <span className="font-mono text-sm text-accent">05</span>
             <span className="h-px w-10 bg-border" />
             <span className="text-xs uppercase tracking-[0.2em] text-text-secondary">
               Contact
@@ -34,7 +34,7 @@ export default function Contact() {
                 <br />
                 something
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-accent-dim">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
                   great.
                 </span>
               </h2>
@@ -70,11 +70,11 @@ export default function Contact() {
                     rel="noopener noreferrer"
                     className="group flex items-center justify-between p-4 rounded-xl border border-border bg-canvas hover:border-accent/35 transition-all duration-300"
                   >
-                    <div>
+                    <div className="min-w-0">
                       <span className="text-text-primary font-medium text-sm group-hover:text-accent transition-colors duration-200">
                         {s.name}
                       </span>
-                      <span className="ml-3 font-mono text-xs text-text-tertiary">
+                      <span className="ml-3 font-mono text-xs text-text-tertiary truncate">
                         {s.handle}
                       </span>
                     </div>

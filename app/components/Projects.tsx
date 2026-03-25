@@ -85,13 +85,13 @@ const PROJECTS = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-32 bg-surface">
+    <section id="projects" className="py-32 bg-canvas">
       <div className="max-w-6xl mx-auto px-6">
 
         {/* Section label */}
         <AnimateIn>
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-mono text-sm text-accent">02</span>
+            <span className="font-mono text-sm text-accent">03</span>
             <span className="h-px w-10 bg-border" />
             <span className="text-xs uppercase tracking-[0.2em] text-text-secondary">
               Selected Work
@@ -110,7 +110,7 @@ export default function Projects() {
           </AnimateIn>
           <AnimateIn delay={180}>
             <a
-              href="https://github.com"
+              href="https://github.com/virginiamwega2-svg"
               target="_blank"
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 text-sm text-text-secondary hover:text-accent transition-colors duration-200 shrink-0"
