@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f1433"/>
+      <stop offset="1" stop-color="#0f0b16"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="80" y="90" width="1040" height="520" rx="28" fill="#191425" stroke="#7C3AED" stroke-opacity="0.35"/>
+  <rect x="120" y="130" width="360" height="40" rx="10" fill="#2b2145"/>
+  <rect x="120" y="190" width="520" height="26" rx="8" fill="#241a3a"/>
+  <rect x="120" y="230" width="420" height="26" rx="8" fill="#241a3a"/>
+  <rect x="120" y="270" width="480" height="26" rx="8" fill="#241a3a"/>
+  <rect x="120" y="340" width="300" height="130" rx="16" fill="#261b3e"/>
+  <rect x="440" y="340" width="300" height="130" rx="16" fill="#261b3e"/>
+  <rect x="760" y="340" width="300" height="130" rx="16" fill="#261b3e"/>
+  <text x="140" y="160" fill="#C4B5FD" font-family="Arial, sans-serif" font-size="26" font-weight="600">Fit Parent Plan</text>
+  <text x="140" y="215" fill="#C4B5FD" font-family="Arial, sans-serif" font-size="18" opacity="0.7">20-minute daily wellness</text>
+</svg>

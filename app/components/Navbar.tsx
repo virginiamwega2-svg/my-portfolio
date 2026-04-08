@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
   { label: "About",      href: "#about"      },
-  { label: "Experience", href: "#experience" },
+  { label: "Project Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
   { label: "Projects",   href: "#projects"   },
   { label: "Skills",     href: "#skills"     },
   { label: "Contact",    href: "#contact"    },
@@ -181,6 +182,15 @@ export default function Navbar() {
 
         </div>
       </div>
+
+      {/* ── Mobile sticky CTA ───────────────────────────────── */}
+      <a
+        href="#contact"
+        className="md:hidden fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-accent text-canvas font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:bg-accent-dim transition-colors duration-200"
+      >
+        Hire Me
+        <span className="inline-block">→</span>
+      </a>
     </nav>
   );
 }

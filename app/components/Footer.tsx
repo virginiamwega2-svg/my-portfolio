@@ -2,7 +2,8 @@
 
 const NAV_LINKS = [
   { label: "About",      href: "#about"      },
-  { label: "Experience", href: "#experience" },
+  { label: "Project Experience", href: "#experience" },
+  { label: "Education", href: "#education" },
   { label: "Projects",   href: "#projects"   },
   { label: "Skills",     href: "#skills"     },
   { label: "Contact",    href: "#contact"    },
@@ -30,7 +31,7 @@ export default function Footer() {
             </a>
             <p className="mt-4 text-text-secondary text-sm leading-relaxed">
               Full-stack software engineer building fast, elegant web
-              applications. Based in New York, available worldwide.
+              applications. Available worldwide.
             </p>
             <div className="mt-5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-success status-dot shrink-0" />
@@ -85,9 +86,7 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Virginia Mwega. All rights reserved.
           </span>
 
-          <span className="font-mono text-xs text-text-tertiary">
-            Built with Next.js &amp; Tailwind CSS
-          </span>
+
 
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

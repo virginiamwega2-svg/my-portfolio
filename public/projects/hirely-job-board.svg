@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2a1f10"/>
+      <stop offset="1" stop-color="#120d07"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="700" fill="url(#bg)"/>
+  <rect x="80" y="90" width="1040" height="520" rx="28" fill="#1a1309" stroke="#C9A96E" stroke-opacity="0.35"/>
+  <rect x="120" y="130" width="420" height="40" rx="10" fill="#2b2112"/>
+  <rect x="120" y="190" width="760" height="26" rx="8" fill="#241b0f"/>
+  <rect x="120" y="230" width="700" height="26" rx="8" fill="#241b0f"/>
+  <rect x="120" y="270" width="640" height="26" rx="8" fill="#241b0f"/>
+  <rect x="120" y="330" width="940" height="60" rx="14" fill="#22190d"/>
+  <rect x="120" y="410" width="940" height="60" rx="14" fill="#22190d"/>
+  <rect x="120" y="490" width="940" height="60" rx="14" fill="#22190d"/>
+  <text x="140" y="160" fill="#FDE68A" font-family="Arial, sans-serif" font-size="26" font-weight="600">Parent-Friendly Job Board</text>
+  <text x="140" y="215" fill="#FDE68A" font-family="Arial, sans-serif" font-size="18" opacity="0.7">Flexible roles for busy parents</text>
+</svg>

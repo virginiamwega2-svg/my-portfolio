@@ -3,18 +3,22 @@ import AnimateIn from "./AnimateIn";
 const PROJECTS = [
   {
     number: "01",
-    title: "Luminary Dashboard",
+    title: "Fit Parent Plan",
+    tagline: "20-minute wellness plan for busy parents.",
     year: "2024",
     problem:
-      "Enterprise teams had no real-time visibility into KPIs — decisions depended on stale spreadsheets and weekly syncs that were already outdated.",
-    stack: ["Next.js", "TypeScript", "D3.js", "Node.js", "PostgreSQL"],
+      "A 20-minute daily wellness plan for busy parents who need clarity and consistency.",
+    impact:
+      "Designed to reduce setup time and make daily routines easier to follow.",
+    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
     features: [
-      "Live charts with 15+ customisable widget types",
-      "Role-based access control for multi-team orgs",
-      "One-click CSV & PDF report export",
+      "Quick-start flow with minimal setup",
+      "Calm, readable UI built for mobile",
+      "Focused routines that reduce decision fatigue",
     ],
-    demo: "#",
-    github: "#",
+    demo: "https://fit-parent-plan-platform.vercel.app/",
+    github: "https://github.com/virginiamwega2-svg/Fit-Parent-Plan-Platform",
+    image: "/projects/fit-parent-plan.svg",
     gradientFrom: "from-violet-950/60",
     glowColor: "rgba(139,92,246,0.14)",
     accentLine: "#7C3AED",
@@ -23,18 +27,22 @@ const PROJECTS = [
   },
   {
     number: "02",
-    title: "Forge Commerce",
+    title: "Parent-Friendly Job Board",
+    tagline: "Flexible roles and parent-first filters.",
     year: "2024",
     problem:
-      "Small brands needed a scalable headless storefront without the $50K+ price tag of enterprise platforms like Shopify Plus or Commercetools.",
-    stack: ["Next.js", "Django", "Stripe", "PostgreSQL", "Redis"],
+      "A simple job board that highlights flexible, parent-friendly roles.",
+    impact:
+      "Built to help parents find relevant roles faster with clear filters.",
+    stack: ["Django", "PostgreSQL", "JavaScript", "Bootstrap"],
     features: [
-      "Headless CMS with drag-and-drop page editor",
-      "Stripe Checkout with recurring subscription billing",
-      "Redis-backed cart — persists across sessions and devices",
+      "Search and filters for schedule, location, and remote work",
+      "Easy-to-scan listings with clear requirements",
+      "Lightweight UI for fast browsing",
     ],
-    demo: "#",
-    github: "#",
+    demo: "https://hirely-a0lx.onrender.com/",
+    github: "https://github.com/virginiamwega2-svg/hirely",
+    image: "/projects/hirely-job-board.svg",
     gradientFrom: "from-amber-950/50",
     glowColor: "rgba(201,169,110,0.14)",
     accentLine: "#C9A96E",
@@ -43,18 +51,22 @@ const PROJECTS = [
   },
   {
     number: "03",
-    title: "Pulse Health",
+    title: "PureNest Family Wellness Store",
+    tagline: "Family wellness e-commerce for Canadian households.",
     year: "2023",
     problem:
-      "Users' health data was siloed across five different apps with no unified view, no trends, and no actionable guidance on what to actually do.",
-    stack: ["React Native", "GraphQL", "AWS Lambda", "TensorFlow"],
+      "A family wellness e-commerce store tailored to Canadian households.",
+    impact:
+      "Focused on trust and clarity to help shoppers decide quickly.",
+    stack: ["React", "Next.js", "Tailwind CSS"],
     features: [
-      "AI-generated weekly health insights per user",
-      "Syncs with Apple Health, Fitbit & Garmin",
-      "Streak system that drove 3× daily engagement vs. baseline",
+      "Clean product categories and detail pages",
+      "Fast, simple cart and checkout flow",
+      "Trust-first layout with clear product info",
     ],
     demo: "#",
-    github: "#",
+    github: "https://github.com/virginiamwega2-svg/purenest-family",
+    image: "/projects/purenest-store.svg",
     gradientFrom: "from-emerald-950/50",
     glowColor: "rgba(52,211,153,0.14)",
     accentLine: "#34D399",
@@ -63,23 +75,42 @@ const PROJECTS = [
   },
   {
     number: "04",
-    title: "ReviewBot",
+    title: "SchedAI Product Landing Page",
+    tagline: "Scheduling content without adding headcount.",
     year: "2023",
     problem:
-      "A two-person engineering team was spending 40% of every sprint on manual code review instead of shipping product.",
-    stack: ["Next.js", "Python", "OpenAI API", "GitHub API", "Postgres"],
+      "SchedAI helps ecommerce operators and creator-led brands publish on schedule without adding headcount.",
+    impact:
+      "Clear messaging and flow to move visitors from idea to action.",
+    stack: ["React", "Next.js", "Tailwind CSS"],
     features: [
-      "Automated PR summaries with risk scoring (low / medium / high)",
-      "Security vulnerability pattern detection pre-merge",
-      "Slack notifications with one-click approve workflow",
+      "Scheduling, approvals, and analytics in one place",
+      "Clear value props and conversion-focused layout",
+      "Fast, mobile-first experience",
     ],
-    demo: "#",
-    github: "#",
+    demo: "https://product-landig-page.vercel.app/",
+    github: "https://github.com/virginiamwega2-svg/Product-Landing-Page",
+    image: "/projects/schedai-landing.svg",
     gradientFrom: "from-sky-950/50",
     glowColor: "rgba(56,189,248,0.14)",
     accentLine: "#38BDF8",
     accentDot: "bg-sky-400",
     accentText: "text-sky-400",
+  },
+];
+
+const HOW_I_WORK = [
+  {
+    title: "Clarity first",
+    body: "I simplify the flow so busy parents can finish tasks in minutes.",
+  },
+  {
+    title: "Speed matters",
+    body: "Fast load times and smooth interactions on every device.",
+  },
+  {
+    title: "Built for real life",
+    body: "Designs that reduce stress and fit daily routines.",
   },
 ];
 
@@ -131,8 +162,15 @@ export default function Projects() {
 
                 {/* Thumbnail strip */}
                 <div
-                  className={`relative h-40 shrink-0 bg-gradient-to-br ${p.gradientFrom} via-elevated to-canvas overflow-hidden`}
+                  className={`relative h-44 shrink-0 bg-gradient-to-br ${p.gradientFrom} via-elevated to-canvas overflow-hidden`}
                 >
+                  {/* Project screenshot */}
+                  <img
+                    src={p.image}
+                    alt={`${p.title} screenshot`}
+                    className="absolute inset-0 w-full h-full object-cover opacity-90"
+                    loading="lazy"
+                  />
                   {/* Radial hover glow */}
                   <div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -140,15 +178,13 @@ export default function Projects() {
                       background: `radial-gradient(ellipse at 50% 110%, ${p.glowColor}, transparent 65%)`,
                     }}
                   />
+                  {/* Gradient wash for legibility */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${p.gradientFrom} via-elevated to-canvas opacity-75`} />
                   {/* Dot-grid texture */}
                   <div className="absolute inset-0 dot-grid opacity-20" />
                   {/* Watermark number */}
                   <span className="absolute bottom-1 left-5 font-mono text-8xl font-bold text-text-primary/[0.04] select-none leading-none">
                     {p.number}
-                  </span>
-                  {/* Year badge */}
-                  <span className="absolute top-4 right-4 font-mono text-xs text-text-tertiary">
-                    {p.year}
                   </span>
                   {/* Accent rule */}
                   <div
@@ -176,6 +212,9 @@ export default function Projects() {
                   <h3 className="text-xl font-bold text-text-primary group-hover:text-accent transition-colors duration-300 leading-snug">
                     {p.title}
                   </h3>
+                  <p className="text-sm text-text-secondary -mt-3">
+                    {p.tagline}
+                  </p>
 
                   {/* Problem */}
                   <div>
@@ -184,6 +223,16 @@ export default function Projects() {
                     </p>
                     <p className="text-sm text-text-secondary leading-relaxed">
                       {p.problem}
+                    </p>
+                  </div>
+
+                  {/* Impact */}
+                  <div>
+                    <p className="text-[0.65rem] font-semibold text-text-tertiary uppercase tracking-[0.18em] mb-2">
+                      Impact
+                    </p>
+                    <p className="text-sm text-text-secondary leading-relaxed">
+                      {p.impact}
                     </p>
                   </div>
 
@@ -205,37 +254,61 @@ export default function Projects() {
                   </div>
 
                   {/* Footer — links */}
-                  <div className="pt-4 border-t border-border flex items-center gap-5">
-                    <a
-                      href={p.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`group/link inline-flex items-center gap-1.5 text-sm font-semibold ${p.accentText} hover:opacity-75 transition-opacity duration-200`}
-                    >
-                      Live Demo
-                      <span className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-200">
-                        ↗
-                      </span>
-                    </a>
-                    <span className="w-px h-4 bg-border" />
-                    <a
-                      href={p.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-200"
-                    >
-                      GitHub
-                      <span className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-200">
-                        ↗
-                      </span>
-                    </a>
-                  </div>
+                  {(p.demo !== "#" || p.github !== "#") && (
+                    <div className="pt-4 border-t border-border flex items-center gap-5">
+                      {p.demo !== "#" && (
+                        <a
+                          href={p.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`group/link inline-flex items-center gap-1.5 text-sm font-semibold ${p.accentText} hover:opacity-75 transition-opacity duration-200`}
+                        >
+                          Live Demo
+                          <span className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-200">
+                            ↗
+                          </span>
+                        </a>
+                      )}
+                      {p.demo !== "#" && p.github !== "#" && <span className="w-px h-4 bg-border" />}
+                      {p.github !== "#" && (
+                        <a
+                          href={p.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/link inline-flex items-center gap-1.5 text-sm font-medium text-text-secondary hover:text-text-primary transition-colors duration-200"
+                        >
+                          GitHub
+                          <span className="group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform duration-200">
+                            ↗
+                          </span>
+                        </a>
+                      )}
+                    </div>
+                  )}
 
                 </div>
               </article>
             </AnimateIn>
           ))}
         </div>
+
+        {/* How I work */}
+        <AnimateIn variant="fade" delay={420}>
+          <div className="mt-10 rounded-2xl bg-surface border border-border p-8">
+            <div className="grid sm:grid-cols-3 gap-8 text-center sm:text-left">
+              {HOW_I_WORK.map((item, i) => (
+                <div key={item.title} className={i > 0 ? "sm:border-l sm:border-border sm:pl-8" : ""}>
+                  <div className="text-accent font-semibold mb-2">
+                    {item.title}
+                  </div>
+                  <div className="text-sm text-text-secondary leading-relaxed">
+                    {item.body}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </AnimateIn>
 
       </div>
     </section>

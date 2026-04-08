@@ -4,14 +4,7 @@
 // App Router renders them as hydration boundaries automatically.
 
 import Typewriter from "./Typewriter";
-import CountUp    from "./CountUp";
 
-const STATS = [
-  { end: 3,   suffix: "+", label: "Years Experience" },
-  { end: 20,  suffix: "+", label: "Projects Delivered" },
-  { end: 15,  suffix: "+", label: "Happy Clients" },
-  { end: 100, suffix: "%", label: "Commitment" },
-];
 
 export default function Hero() {
   return (
@@ -68,8 +61,8 @@ export default function Hero() {
           className="hero-fade-up text-text-secondary text-lg md:text-xl max-w-md leading-relaxed mb-14"
           style={{ animationDelay: "0.28s" }}
         >
-          Turning complex problems into clean, fast, and elegant products people
-          actually love to use.
+          Building fast, elegant web apps that help busy parents save time and
+          stay organized.
         </p>
 
         {/* CTAs */}
@@ -103,23 +96,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Stats bar */}
-      <div className="relative border-t border-border">
-        <div className="max-w-5xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6">
-          {STATS.map((s, i) => (
-            <div
-              key={s.label}
-              className="hero-fade-up"
-              style={{ animationDelay: `${0.48 + i * 0.08}s` }}
-            >
-              <div className="text-3xl font-bold text-text-primary font-mono mb-1">
-                <CountUp end={s.end} suffix={s.suffix} />
-              </div>
-              <div className="text-sm text-text-secondary">{s.label}</div>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* Stats bar removed */}
     </section>
   );
 }

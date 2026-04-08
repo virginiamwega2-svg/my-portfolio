@@ -1,46 +1,53 @@
 import AnimateIn from "./AnimateIn";
 
-const JOBS = [
+const PROJECTS = [
   {
-    role:     "Software Engineer",
-    company:  "Meridian Analytics",
-    period:   "Jan 2023 — Present",
-    location: "New York, NY",
-    type:     "Full-time",
-    current:  true,
+    title:   "Fit Parent Plan",
+    context: "Personal Project",
+    period:  "2026",
+    current: true,
     bullets: [
-      "Led a full rebuild of the customer analytics dashboard with Next.js and React Query, reducing page load time by 58% and eliminating stale-data bugs.",
-      "Designed a normalized PostgreSQL schema for multi-tenant reporting — cut median query time from 1.4 s to under 0.5 s.",
-      "Built and owned the GitHub Actions → AWS ECS deployment pipeline; took deploy time from 22 min to 7 min.",
+      "Designed a 20-minute daily plan that busy parents can follow without overwhelm.",
+      "Built quick-start flows so users can set a plan in minutes.",
+      "Focused on calm, readable UI and mobile-first layouts.",
     ],
-    stack: ["Next.js", "TypeScript", "React Query", "Python", "PostgreSQL", "AWS ECS"],
+    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
-    role:     "Full-Stack Developer",
-    company:  "Stacklabs",
-    period:   "Aug 2021 — Dec 2022",
-    location: "Remote",
-    type:     "Full-time",
-    current:  false,
+    title:   "Parent-Friendly Job Board",
+    context: "Personal Project",
+    period:  "2025",
+    current: false,
     bullets: [
-      "Shipped the end-to-end onboarding flow for a B2B SaaS product serving 8 000+ active users, from API design through to React UI.",
-      "Built a REST API with Django REST Framework, including role-based access, rate limiting, and webhook delivery.",
-      "Migrated legacy data warehouse from a self-hosted MySQL monolith to Redshift — reduced monthly infra cost by 35%.",
+      "Built a job board that highlights flexible roles for busy parents.",
+      "Implemented search and filtering for schedule, location, and remote options.",
+      "Kept the experience lightweight and easy to scan.",
     ],
-    stack: ["React", "Django REST", "PostgreSQL", "Redshift", "Docker", "Stripe"],
+    stack: ["Django", "PostgreSQL", "JavaScript", "Bootstrap"],
   },
   {
-    role:     "Software Engineer Intern",
-    company:  "Brightwave Corp",
-    period:   "Mar 2021 — Jul 2021",
-    location: "New York, NY",
-    type:     "Internship",
-    current:  false,
+    title:   "PureNest Family Wellness Store",
+    context: "Personal Project",
+    period:  "2025",
+    current: false,
     bullets: [
-      "Built internal tooling for the operations team that automated a 4-hour manual reporting process down to a 5-minute scheduled job.",
-      "Shipped a product search feature with Elasticsearch integration — improved search relevance score by 40% per A/B test.",
+      "Built an e-commerce store for Canadian families focused on wellness products.",
+      "Designed clean product categories, detail pages, and cart flows for fast shopping.",
+      "Prioritized trust, clarity, and mobile-first performance.",
     ],
-    stack: ["React", "Node.js", "Elasticsearch", "Redis"],
+    stack: ["React", "Next.js", "Tailwind CSS"],
+  },
+  {
+    title:   "Busy Parent Kits Store",
+    context: "Personal Project",
+    period:  "2024",
+    current: false,
+    bullets: [
+      "Built an e-commerce experience for busy-parent kits and bundles.",
+      "Implemented product browsing and detail pages with clean UX.",
+      "Kept checkout flows simple and fast for mobile users.",
+    ],
+    stack: ["Node.js", "Express.js", "SQLite", "Render"],
   },
 ];
 
@@ -55,7 +62,7 @@ export default function Experience() {
             <span className="font-mono text-sm text-accent">02</span>
             <span className="h-px w-10 bg-border" />
             <span className="text-xs uppercase tracking-[0.2em] text-text-secondary">
-              Experience
+              Project Experience
             </span>
           </div>
         </AnimateIn>
@@ -63,9 +70,9 @@ export default function Experience() {
         {/* Headline */}
         <AnimateIn variant="left" delay={80}>
           <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight mb-16">
-            Where I&apos;ve{" "}
+            Projects I&apos;ve{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
-              shipped things.
+              shipped.
             </span>
           </h2>
         </AnimateIn>
@@ -76,21 +83,21 @@ export default function Experience() {
           <div className="absolute left-3 top-2 bottom-2 w-px bg-border" aria-hidden="true" />
 
           <div className="flex flex-col gap-12">
-            {JOBS.map((job, i) => (
-              <AnimateIn key={job.company} variant="left" delay={i * 100}>
+            {PROJECTS.map((project, i) => (
+              <AnimateIn key={project.title} variant="left" delay={i * 100}>
                 <div className="relative pl-12">
 
                   {/* Timeline dot */}
                   <div
                     className={`absolute left-0 top-1.5 w-6 h-6 rounded-full border flex items-center justify-center ${
-                      job.current
+                      project.current
                         ? "border-accent bg-accent/15"
                         : "border-border bg-elevated"
                     }`}
                   >
                     <div
                       className={`w-2 h-2 rounded-full ${
-                        job.current ? "bg-accent" : "bg-text-tertiary"
+                        project.current ? "bg-accent" : "bg-text-tertiary"
                       }`}
                     />
                   </div>
@@ -102,32 +109,30 @@ export default function Experience() {
                     <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                       <div>
                         <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent transition-colors duration-200">
-                          {job.role}
+                          {project.title}
                         </h3>
                         <p className="text-text-secondary text-sm mt-0.5">
-                          {job.company}
-                          <span className="mx-2 text-text-tertiary">·</span>
-                          {job.location}
+                          {project.context}
                         </p>
                       </div>
 
                       <div className="flex flex-col items-end gap-1.5 shrink-0">
                         <span className="font-mono text-xs text-text-tertiary">
-                          {job.period}
+                          {project.period}
                         </span>
                         <span
                           className={`badge text-[0.65rem] ${
-                            job.current ? "badge-accent" : "badge"
+                            project.current ? "badge-accent" : "badge"
                           }`}
                         >
-                          {job.current ? "● Current" : job.type}
+                          {project.current ? "● Current" : "Project"}
                         </span>
                       </div>
                     </div>
 
                     {/* Bullets */}
                     <ul className="flex flex-col gap-2.5 mb-5">
-                      {job.bullets.map((b) => (
+                      {project.bullets.map((b) => (
                         <li key={b} className="flex gap-3 text-sm text-text-secondary leading-relaxed">
                           <span className="mt-1.5 w-1 h-1 rounded-full bg-accent shrink-0" />
                           {b}
@@ -137,7 +142,7 @@ export default function Experience() {
 
                     {/* Stack */}
                     <div className="flex flex-wrap gap-2">
-                      {job.stack.map((t) => (
+                      {project.stack.map((t) => (
                         <span key={t} className="badge badge-warm">
                           {t}
                         </span>
