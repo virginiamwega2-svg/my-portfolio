@@ -1,10 +1,6 @@
 // Hero uses pure CSS keyframe animations so it can stay a Server Component
 // (no IntersectionObserver needed — everything is above the fold on load).
-// Typewriter and CountUp are Client Components imported here; Next.js
-// App Router renders them as hydration boundaries automatically.
-
-import Typewriter from "./Typewriter";
-
+// Keeping this component server-rendered helps initial paint stay fast.
 
 export default function Hero() {
   return (
@@ -24,7 +20,6 @@ export default function Hero() {
 
       {/* Main content */}
       <div className="relative flex-1 flex flex-col justify-center max-w-5xl mx-auto w-full px-6 pt-32 pb-16">
-
         {/* Available badge */}
         <div
           className="hero-fade-up inline-flex items-center gap-2.5 px-4 py-1.5 mb-12 w-fit rounded-full border border-border bg-elevated text-text-secondary text-sm"
@@ -47,22 +42,21 @@ export default function Hero() {
           className="hero-fade-up text-[clamp(3.5rem,10vw,7.5rem)] font-bold tracking-tight leading-[0.88] text-text-primary mb-8"
           style={{ animationDelay: "0.18s" }}
         >
-          Software
+          Full Stack
           <br />
-          <Typewriter
-            words={["Engineer", "Developer", "Builder"]}
-            className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim"
-          />
+          <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
+            Developer
+          </span>
           <span className="text-text-tertiary">.</span>
         </h1>
 
         {/* Tagline */}
         <p
-          className="hero-fade-up text-text-secondary text-lg md:text-xl max-w-md leading-relaxed mb-14"
+          className="hero-fade-up text-text-secondary text-lg md:text-xl max-w-xl leading-relaxed mb-14"
           style={{ animationDelay: "0.28s" }}
         >
-          Building fast, elegant web apps that help busy parents save time and
-          stay organized.
+          Building fast, elegant full-stack web apps that help busy parents save
+          time and stay organized.
         </p>
 
         {/* CTAs */}

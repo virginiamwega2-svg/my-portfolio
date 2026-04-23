@@ -11,11 +11,13 @@ const EDUCATION = [
 
 const CERTIFICATIONS = [
   {
+    id: "cert-1",
     title: "Certification Name",
     issuer: "Issuing Organization",
     year: "Year",
   },
   {
+    id: "cert-2",
     title: "Certification Name",
     issuer: "Issuing Organization",
     year: "Year",
@@ -45,8 +47,8 @@ export default function Education() {
                 Education
               </h3>
               <div className="flex flex-col gap-5">
-                {EDUCATION.map((item) => (
-                  <div key={item.title}>
+                {EDUCATION.map((item, i) => (
+                  <div key={`${item.title}-${item.school}-${item.period}-${i}`}>
                     <p className="text-sm font-semibold text-text-primary">
                       {item.title}
                     </p>
@@ -71,8 +73,13 @@ export default function Education() {
                 Certifications
               </h3>
               <ul className="flex flex-col gap-4">
-                {CERTIFICATIONS.map((cert) => (
-                  <li key={`${cert.title}-${cert.year}`}>
+                {CERTIFICATIONS.map((cert, i) => (
+                  <li
+                    key={
+                      cert.id ??
+                      `${cert.title}-${cert.issuer}-${cert.year}-${i}`
+                    }
+                  >
                     <p className="text-sm font-semibold text-text-primary">
                       {cert.title}
                     </p>

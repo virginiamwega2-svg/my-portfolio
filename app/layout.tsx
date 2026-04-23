@@ -23,13 +23,13 @@ const BASE_URL = "https://virginiamwega.dev";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Virginia Mwega — Software Engineer",
+    default: "Virginia Mwega — Full Stack Developer",
     template: "%s | Virginia Mwega",
   },
   description:
-    "Full-stack software engineer based in New York. I build fast, elegant web applications with React, Next.js, Python, and PostgreSQL.",
+    "Full-stack developer based in New York. I build fast, elegant web applications with React, Next.js, Python, and PostgreSQL.",
   keywords: [
-    "software engineer",
+    "full stack developer",
     "full-stack developer",
     "React",
     "Next.js",
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     locale:      "en_US",
     url:         BASE_URL,
     siteName:    "Virginia Mwega",
-    title:       "Virginia Mwega — Software Engineer",
-    description: "Full-stack software engineer based in New York. I build fast, elegant web applications with React, Next.js, Python, and PostgreSQL.",
+    title:       "Virginia Mwega — Full Stack Developer",
+    description: "Full-stack developer based in New York. I build fast, elegant web applications with React, Next.js, Python, and PostgreSQL.",
   },
   twitter: {
     card:        "summary_large_image",
-    title:       "Virginia Mwega — Software Engineer",
-    description: "Full-stack software engineer based in New York.",
+    title:       "Virginia Mwega — Full Stack Developer",
+    description: "Full-stack developer based in New York.",
     creator:     "@virginiamwega",
   },
   robots: {

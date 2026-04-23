@@ -4,17 +4,17 @@ const PROJECTS = [
   {
     number: "01",
     title: "Fit Parent Plan",
-    tagline: "20-minute wellness plan for busy parents.",
-    year: "2024",
+    tagline: "Full-stack fitness system for busy parents.",
+    year: "2026",
     problem:
-      "A 20-minute daily wellness plan for busy parents who need clarity and consistency.",
+      "Most fitness programs assume clean weeks, fixed gym time, and high energy. Busy parents have unpredictable schedules, so consistency breaks and apps treat it like failure instead of designing for real life.",
     impact:
-      "Designed to reduce setup time and make daily routines easier to follow.",
-    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+      "Designed for 10–20 minute sessions and “messy-week” rescue flows, then shipped a production-ready system with CI-gated deploys to Vercel (typecheck/lint/tests/E2E), secure payments, and operational notifications.",
+    stack: ["Next.js (App Router)", "React", "TypeScript", "Tailwind CSS", "SQLite", "Stripe"],
     features: [
-      "Quick-start flow with minimal setup",
-      "Calm, readable UI built for mobile",
-      "Focused routines that reduce decision fatigue",
+      "Time-Window Planner generates a realistic 2-week plan from availability + stress/sleep context",
+      "Auth + member dashboard with persisted tools, progress snapshots, and meal-plan tracking",
+      "Stripe subscriptions + verified webhooks, Zod validation, rate limiting, and Resend notifications",
     ],
     demo: "https://fit-parent-plan-platform.vercel.app/",
     github: "https://github.com/virginiamwega2-svg/Fit-Parent-Plan-Platform",
@@ -27,18 +27,18 @@ const PROJECTS = [
   },
   {
     number: "02",
-    title: "Parent-Friendly Job Board",
-    tagline: "Flexible roles and parent-first filters.",
+    title: "Hirely",
+    tagline: "Flexible jobs, structured for busy parents.",
     year: "2024",
     problem:
-      "A simple job board that highlights flexible, parent-friendly roles.",
+      "Flexibility is usually buried in job descriptions, so parents waste time opening listings just to check schedule, remote fit, and hours.",
     impact:
-      "Built to help parents find relevant roles faster with clear filters.",
-    stack: ["Django", "PostgreSQL", "JavaScript", "Bootstrap"],
+      "Turned flexibility into structured data (schedule type, remote, hours/day) to power fast discovery, then shipped one-step apply and a lightweight employer workflow to track decisions.",
+    stack: ["Python", "Django", "PostgreSQL", "Bootstrap 5"],
     features: [
-      "Search and filters for schedule, location, and remote work",
-      "Easy-to-scan listings with clear requirements",
-      "Lightweight UI for fast browsing",
+      "Search, sorting, and filters built on structured flexibility data",
+      "One-step apply with guardrails + optional resume upload",
+      "Employer dashboard to manage roles and update applicant statuses",
     ],
     demo: "https://hirely-a0lx.onrender.com/",
     github: "https://github.com/virginiamwega2-svg/hirely",

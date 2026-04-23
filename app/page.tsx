@@ -13,9 +13,9 @@ const jsonLd = {
   "@type":    "Person",
   name:       "Virginia Mwega",
   url:        "https://virginiamwega.dev",
-  jobTitle:   "Software Engineer",
+  jobTitle:   "Full Stack Developer",
   description:
-    "Full-stack software engineer building fast, elegant web applications with React, Next.js, Python, and PostgreSQL.",
+    "Full-stack developer building fast, elegant web applications with React, Next.js, Python, and PostgreSQL.",
   address: {
     "@type":         "PostalAddress",
     addressLocality: "New York",

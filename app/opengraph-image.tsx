@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt          = "Virginia Mwega — Software Engineer";
+export const alt          = "Virginia Mwega — Full Stack Developer";
 export const size         = { width: 1200, height: 630 };
 export const contentType  = "image/png";
 
@@ -90,9 +90,9 @@ export default function Image() {
             letterSpacing: "0.18em",
             textTransform: "uppercase",
             marginBottom: "36px",
-          }}
-        >
-          Software Engineer
+        }}
+      >
+          Full Stack Developer
         </div>
 
         {/* Tagline */}
@@ -102,9 +102,9 @@ export default function Image() {
             color: "#5C5652",
             lineHeight: 1.65,
             maxWidth: "620px",
-          }}
-        >
-          Full-stack engineer building fast, elegant web applications
+        }}
+      >
+          Full-stack developer building fast, elegant web applications
           with React, Next.js, Python, and PostgreSQL.
         </div>
 

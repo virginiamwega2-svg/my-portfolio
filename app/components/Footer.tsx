@@ -30,7 +30,7 @@ export default function Footer() {
               VM.
             </a>
             <p className="mt-4 text-text-secondary text-sm leading-relaxed">
-              Full-stack software engineer building fast, elegant web
+              Full-stack developer building fast, elegant web
               applications. Available worldwide.
             </p>
             <div className="mt-5 flex items-center gap-2">
