@@ -1,16 +1,20 @@
 import AnimateIn from "./AnimateIn";
 import {
-  Code2, Workflow, FileText, PenLine, Search, ArrowRight,
+  Code2, Workflow, FileText, PenLine, Search, ArrowRight, Check,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+
+type Proof = { text: string; href?: string };
 
 type Service = {
   icon: LucideIcon;
   title: string;
   body: string;
   tags: string[];
-  accent: string; // tailwind text color
-  iconBg: string; // tailwind bg color (low-alpha tint)
+  accent: string;
+  iconBg: string;
+  deliverables?: string[];
+  proof?: Proof;
 };
 
 const SERVICES: Service[] = [
@@ -18,7 +22,17 @@ const SERVICES: Service[] = [
     icon: Code2,
     title: "Full-Stack & AI Engineering",
     body:
-      "Production web apps end-to-end — schema, API, Claude/OpenAI integration, auth, payments, CI, and deploy. Built to keep working when an API key runs dry.",
+      "Production web apps end-to-end — built to keep working when an API key runs dry.",
+    deliverables: [
+      "Schema design, REST/Next API routes, and full auth flows",
+      "Claude / OpenAI integration with tool use, streaming, and graceful fallbacks",
+      "Stripe Checkout + idempotent webhook handlers",
+      "Production hardening — rate limits, security headers, CI checks",
+    ],
+    proof: {
+      text: "Shipped end-to-end in Fit Parent Plan — 74 paying parents, 4.9 / 5 across 38 reviews.",
+      href: "#projects",
+    },
     tags: ["Next.js", "Django", "Claude API", "Stripe"],
     accent: "text-accent",
     iconBg: "bg-accent/10",
@@ -27,7 +41,17 @@ const SERVICES: Service[] = [
     icon: Workflow,
     title: "Workflow Automation",
     body:
-      "n8n pipelines, cron jobs, and idempotent webhook handlers that connect Stripe, Resend, CRMs, and internal tools without duplicate orders or silent failures.",
+      "n8n pipelines and webhook plumbing that connect SaaS tools without duplicate orders or silent failures.",
+    deliverables: [
+      "n8n workflow architecture, build, and monitoring",
+      "Idempotent webhook handlers (Stripe, Resend, Calendly)",
+      "Cron jobs and scheduled digests / nudges",
+      "Event-pipeline design — structured logSession events to downstream tools",
+    ],
+    proof: {
+      text: "Powers the weekly Parent Pulse digest pipeline behind Fit Parent Plan.",
+      href: "#projects",
+    },
     tags: ["n8n", "Webhooks", "Cron", "Resend"],
     accent: "text-violet-400",
     iconBg: "bg-violet-400/10",
@@ -36,8 +60,17 @@ const SERVICES: Service[] = [
     icon: Search,
     title: "SEO",
     body:
-      "Technical SEO and content strategy for SaaS and blogs — schema markup, Core Web Vitals, sitemap and robots hygiene, and search-shaped content briefs.",
-    tags: ["Technical SEO", "Schema", "CWV"],
+      "Technical SEO and content strategy for SaaS and blogs — measurable, not folk-magic.",
+    deliverables: [
+      "Technical audit + prioritised fix list (CWV, indexing, schema)",
+      "JSON-LD structured data implementation",
+      "Sitemap, robots, OG + Twitter card pipeline",
+      "Search-shaped content briefs with keyword clustering",
+    ],
+    proof: {
+      text: "This portfolio: full schema markup, sitemap.xml, robots.ts, OG images, and CWV targets met.",
+    },
+    tags: ["Technical SEO", "Schema", "CWV", "Content Strategy"],
     accent: "text-emerald-400",
     iconBg: "bg-emerald-400/10",
   },
@@ -45,7 +78,7 @@ const SERVICES: Service[] = [
     icon: FileText,
     title: "Technical Writing",
     body:
-      "Developer-facing docs, engineering blog posts, and tutorials that lead with the problem, show the diff, and close with the gotcha. Posts engineers actually read.",
+      "Developer-facing docs, engineering blog posts, and tutorials that lead with the problem, show the diff, and close with the gotcha.",
     tags: ["Docs", "Tutorials", "MDX"],
     accent: "text-amber-400",
     iconBg: "bg-amber-400/10",
@@ -69,7 +102,7 @@ export default function Services() {
         {/* Section label */}
         <AnimateIn>
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-mono text-sm text-accent">06</span>
+            <span className="font-mono text-sm text-accent">05</span>
             <span className="h-px w-10 bg-border" />
             <span className="text-xs uppercase tracking-[0.2em] text-text-secondary">
               Services
@@ -77,24 +110,16 @@ export default function Services() {
           </div>
         </AnimateIn>
 
-        {/* Heading row */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
-          <AnimateIn delay={100}>
-            <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight">
-              What I do
-              <br />
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
-                for clients.
-              </span>
-            </h2>
-          </AnimateIn>
-          <AnimateIn delay={180}>
-            <p className="text-text-secondary text-sm max-w-sm">
-              Five lanes of work — from shipping AI products to writing the
-              content that explains them. Each priced as a fixed scope.
-            </p>
-          </AnimateIn>
-        </div>
+        {/* Heading */}
+        <AnimateIn delay={100}>
+          <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight mb-14">
+            What I do
+            <br />
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
+              for clients.
+            </span>
+          </h2>
+        </AnimateIn>
 
         {/* Service cards */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -116,9 +141,56 @@ export default function Services() {
                   </h3>
 
                   {/* Body */}
-                  <p className="text-sm text-text-secondary leading-relaxed mb-5 flex-1">
+                  <p className="text-sm text-text-secondary leading-relaxed mb-5">
                     {s.body}
                   </p>
+
+                  {/* Deliverables — checklist of what the client gets */}
+                  {s.deliverables && (
+                    <>
+                      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-text-tertiary mb-2.5">
+                        What you get
+                      </p>
+                      <ul className="flex flex-col gap-2 mb-5">
+                        {s.deliverables.map((d) => (
+                          <li
+                            key={d}
+                            className="flex items-start gap-2 text-sm text-text-secondary leading-snug"
+                          >
+                            <Check
+                              className={`mt-0.5 h-3.5 w-3.5 shrink-0 ${s.accent}`}
+                              strokeWidth={2.5}
+                            />
+                            <span>{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+
+                  {/* Proof — link to where it's been demonstrated */}
+                  {s.proof && (
+                    <div className="mb-5 rounded-lg border border-border bg-elevated/60 px-3 py-2.5">
+                      <p className="text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-text-tertiary mb-1">
+                        Proof
+                      </p>
+                      {s.proof.href ? (
+                        <a
+                          href={s.proof.href}
+                          className="text-xs text-text-secondary leading-snug hover:text-accent transition-colors"
+                        >
+                          {s.proof.text}
+                        </a>
+                      ) : (
+                        <p className="text-xs text-text-secondary leading-snug">
+                          {s.proof.text}
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Spacer to push footer down when card has less content */}
+                  <div className="flex-1" />
 
                   {/* Tags */}
                   <div className="flex flex-wrap gap-1.5 mb-5">

@@ -704,6 +704,45 @@ h1, h2, h3 {
   animation:             gradientShift 5s ease infinite;
 }
 
+/* ── Skills marquee — two opposing belts + edge fade ────────── */
+.skills-mask {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+          mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+.skills-marquee {
+  width: max-content;
+  will-change: transform;
+}
+.skills-marquee-left  { animation: skillsScrollLeft  55s linear infinite; }
+.skills-marquee-right { animation: skillsScrollRight 65s linear infinite; }
+.skills-marquee:hover { animation-play-state: paused; }
+
+@keyframes skillsScrollLeft {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-50% - 0.625rem / 2)); }
+}
+@keyframes skillsScrollRight {
+  from { transform: translateX(calc(-50% - 0.625rem / 2)); }
+  to   { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-marquee-left,
+  .skills-marquee-right { animation: none; }
+}
+
 /* ── Command palette (search modal) ─────────────────────────── */
 @keyframes cmdOverlayIn {
   from { opacity: 0; }

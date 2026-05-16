@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import {
-  Search, X, User, Briefcase, GraduationCap, FolderGit2,
+  Search, X, User, Briefcase, FolderGit2,
   Wrench, Sparkles, BookOpen, Github, Mail, CornerDownLeft,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -17,7 +17,6 @@ type Section = {
 const SECTIONS: Section[] = [
   { id: "about",      label: "About",      hint: "Who I am",           icon: User          },
   { id: "experience", label: "Experience", hint: "Project work",        icon: Briefcase     },
-  { id: "education",  label: "Education",  hint: "Background",          icon: GraduationCap },
   { id: "projects",   label: "Projects",   hint: "Selected work",       icon: FolderGit2    },
   { id: "skills",     label: "Skills",     hint: "Tech stack",          icon: Wrench        },
   { id: "services",   label: "Services",   hint: "What I do",           icon: Sparkles      },

@@ -57,7 +57,7 @@ export default function Blog() {
         {/* Section label */}
         <AnimateIn>
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-mono text-sm text-accent">07</span>
+            <span className="font-mono text-sm text-accent">06</span>
             <span className="h-px w-10 bg-border" />
             <span className="text-xs uppercase tracking-[0.2em] text-text-secondary">
               Writing
