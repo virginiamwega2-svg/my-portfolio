@@ -1,11 +1,11 @@
 import AnimateIn from "./AnimateIn";
 import ContactForm from "./ContactForm";
+import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 
+// TODO: verify LinkedIn URL slug matches your real profile before deploy.
 const SOCIALS = [
-  { name: "GitHub",   handle: "@virginiamwega2-svg",         href: "https://github.com/virginiamwega2-svg"      },
-  { name: "LinkedIn", handle: "in/virginia-mwega",       href: "https://linkedin.com/in/virginiamwega2-svg" },
-  { name: "Twitter",  handle: "@virginiamwega2-svg",          href: "https://twitter.com/virginiamwega2-svg"     },
-  { name: "Dribbble", handle: "@virginiamwega2-svg",          href: "https://dribbble.com/virginiamwega2-svg"    },
+  { name: "GitHub",   handle: "@virginiamwega2-svg", href: "https://github.com/virginiamwega2-svg", icon: Github   },
+  { name: "LinkedIn", handle: "in/virginia-mwega",   href: "https://linkedin.com/in/virginia-mwega", icon: Linkedin },
 ];
 
 export default function Contact() {
@@ -16,7 +16,7 @@ export default function Contact() {
         {/* Section label */}
         <AnimateIn>
           <div className="flex items-center gap-4 mb-16">
-            <span className="font-mono text-sm text-accent">05</span>
+            <span className="font-mono text-sm text-accent">09</span>
             <span className="h-px w-10 bg-border" />
             <span className="text-xs uppercase tracking-[0.2em] text-text-secondary">
               Contact
@@ -52,37 +52,38 @@ export default function Contact() {
                 href="mailto:hello@virginiamwega.dev"
                 className="group inline-flex items-center gap-2 text-accent hover:text-accent-dim font-medium transition-colors duration-200 mb-10"
               >
+                <Mail className="h-4 w-4" />
                 hello@virginiamwega.dev
-                <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200">
-                  ↗
-                </span>
+                <ArrowUpRight className="h-4 w-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-200" />
               </a>
             </AnimateIn>
 
             {/* Social links */}
             <AnimateIn variant="left" delay={320}>
               <div className="flex flex-col gap-2">
-                {SOCIALS.map((s) => (
-                  <a
-                    key={s.name}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-center justify-between p-4 rounded-xl border border-border bg-canvas hover:border-accent/35 transition-all duration-300"
-                  >
-                    <div className="min-w-0">
-                      <span className="text-text-primary font-medium text-sm group-hover:text-accent transition-colors duration-200">
-                        {s.name}
-                      </span>
-                      <span className="ml-3 font-mono text-xs text-text-tertiary truncate">
-                        {s.handle}
-                      </span>
-                    </div>
-                    <span className="text-text-tertiary group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 text-sm">
-                      ↗
-                    </span>
-                  </a>
-                ))}
+                {SOCIALS.map((s) => {
+                  const Icon = s.icon;
+                  return (
+                    <a
+                      key={s.name}
+                      href={s.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center justify-between p-4 rounded-xl border border-border bg-canvas hover:border-accent/35 transition-all duration-300"
+                    >
+                      <div className="flex items-center gap-3 min-w-0">
+                        <Icon className="h-4 w-4 text-text-secondary group-hover:text-accent transition-colors duration-200 shrink-0" />
+                        <span className="text-text-primary font-medium text-sm group-hover:text-accent transition-colors duration-200">
+                          {s.name}
+                        </span>
+                        <span className="font-mono text-xs text-text-tertiary truncate">
+                          {s.handle}
+                        </span>
+                      </div>
+                      <ArrowUpRight className="h-4 w-4 text-text-tertiary group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
+                    </a>
+                  );
+                })}
               </div>
             </AnimateIn>
           </div>

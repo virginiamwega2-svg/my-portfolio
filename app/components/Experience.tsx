@@ -3,53 +3,57 @@ import AnimateIn from "./AnimateIn";
 const PROJECTS = [
   {
     title:   "Fit Parent Plan",
-    context: "Personal Project",
-    period:  "2026",
+    role:    "Solo Full-Stack & AI Engineer",
+    context: "AI fitness coaching — production, paying users",
+    period:  "2026 — Now",
     current: true,
+    headline: "74 parents coached · 4.9 / 5 across 38 reviews · $199/mo",
     bullets: [
-      "Built a Time-Window Planner that generates realistic 2-week plans from real availability plus stress/sleep context.",
-      "Implemented secure auth and a member dashboard with persisted tools, progress snapshots, and busy-week rescue flows.",
-      "Integrated Stripe subscriptions + webhooks and shipped with CI gates (typecheck/lint/unit + E2E) to Vercel.",
+      "Owned the full product from rough idea to revenue: schema, AI agents, Stripe, auth, CRO landing, event pipeline, deploy.",
+      "Shipped two Claude agents in production — a conversational \"20-Minute Window\" workout planner and a Pantry-to-Plate dinner agent — both with streaming responses and mock fallback so the demo never breaks on a zero-balance key.",
+      "Designed the event pipeline that powers a weekly Parent Pulse digest: every plan result + email opt-in emits a structured logSession event (planHeadline, planSource, mode, email), consumed downstream by an n8n automation that drafts and sends the digest.",
+      "Engineered no-auth resilience: IP-based rate limiting (x-forwarded-for / x-real-ip parsing with resetInMs to client), a pagehide listener that auto-saves plans before the browser closes, and plan-pause via localStorage so a 7-day break preserves state across sessions.",
+      "Integrated Stripe Checkout + idempotent webhooks, custom JWT auth (no third-party), and a 3-question lead-qualification quiz that filters prospects before they hit the coach.",
     ],
-    stack: ["Next.js (App Router)", "TypeScript", "SQLite", "Stripe", "Tailwind CSS"],
+    stack: ["Next.js 15", "TypeScript", "Tailwind v4", "Claude API", "Stripe", "JWT Auth", "n8n", "Playwright"],
   },
   {
-    title:   "Hirely — Flexible Jobs for Busy Parents",
-    context: "Personal Project",
-    period:  "2025",
+    title:   "Hirely",
+    role:    "Solo builder — product, backend, AI, deployment",
+    context: "AI hiring platform for parents and caregivers",
+    period:  "2024 — 2025",
     current: false,
+    headline: "10+ production AI features · graceful fallback on every surface",
     bullets: [
-      "Made flexibility first-class data (schedule type, remote, hours/day) to power fast search and filtering.",
-      "Streamlined the apply flow to one step with optional resume upload and server-side guardrails.",
-      "Shipped a lightweight employer dashboard to post roles, review applicants, and track decisions.",
+      "Made job flexibility a first-class enum in the database (Fixed / Flexible / Async) — a deliberate schema decision that powers reliable filtering, matching, and AI scoring across the platform.",
+      "Designed and shipped 10+ Claude-powered AI features end-to-end: conversational search grounded in the live DB via tool use, CV parsing into a structured ParentProfile, AI-ranked top matches, employer auto-screening, and AI-drafted empathy emails on status change.",
+      "Engineered AI response caching by (user, profile.parsed_at) so re-uploaded resumes invalidate cleanly — never stale, never wasteful — and built fallbacks for every API surface so the app keeps working when credits run out.",
+      "Shipped weekly digest + stale-job nudge crons, CI-gated deploys (GitHub Actions + Render blueprint), and Neon Postgres on a zero-ops stack.",
     ],
-    stack: ["Python", "Django", "PostgreSQL", "Bootstrap 5"],
+    stack: ["Django", "PostgreSQL (Neon)", "Claude API", "Render", "GitHub Actions", "Resend"],
   },
   {
-    title:   "PureNest Family Wellness Store",
-    context: "Personal Project",
-    period:  "2025",
+    title:   "PureNest Family",
+    role:    "Solo Full-Stack Engineer",
+    context: "AI-assisted family wellness e-commerce",
+    period:  "2023",
     current: false,
+    headline: "Zero duplicate orders across all Stripe webhook retries",
     bullets: [
-      "Built an e-commerce store for Canadian families focused on wellness products.",
-      "Designed clean product categories, detail pages, and cart flows for fast shopping.",
-      "Prioritized trust, clarity, and mobile-first performance.",
+      "Built a complete e-commerce platform from scratch without a starter template — schema → API → AI assistant → checkout → admin tooling.",
+      "Engineered idempotent Stripe webhook handling — processed event IDs persisted so retries never create duplicate orders, regardless of network failures.",
+      "Integrated a Claude-powered conversational shopping assistant for contextual product recommendations across 5 wellness categories.",
+      "Hardened for production: full auth from scratch (email + OAuth + verification + signed reset tokens), verified-purchase reviews with DB-level constraints, server-validated coupon engine, admin dashboard with audit log, and locked-down security headers (CSP, HSTS, X-Frame-Options DENY).",
     ],
-    stack: ["React", "Next.js", "Tailwind CSS"],
-  },
-  {
-    title:   "Busy Parent Kits Store",
-    context: "Personal Project",
-    period:  "2024",
-    current: false,
-    bullets: [
-      "Built an e-commerce experience for busy-parent kits and bundles.",
-      "Implemented product browsing and detail pages with clean UX.",
-      "Kept checkout flows simple and fast for mobile users.",
-    ],
-    stack: ["Node.js", "Express.js", "SQLite", "Render"],
+    stack: ["Next.js 16", "TypeScript", "PostgreSQL", "Prisma", "Stripe", "Claude API", "NextAuth"],
   },
 ];
+
+const FOOTER_NOTE = {
+  heading: "What runs through every project",
+  body:
+    "Three production AI products, one thesis: software designed around messy weeks, not happy paths. Every Claude surface ships with a graceful fallback. Every payment flow handles retries idempotently. Every schema decision is deliberate — built to be reliable for the parents who actually use it.",
+};
 
 export default function Experience() {
   return (
@@ -69,12 +73,19 @@ export default function Experience() {
 
         {/* Headline */}
         <AnimateIn variant="left" delay={80}>
-          <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight mb-16">
-            Projects I&apos;ve{" "}
+          <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight mb-6">
+            Three AI products,{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
-              shipped.
+              one thesis.
             </span>
           </h2>
+        </AnimateIn>
+        <AnimateIn variant="left" delay={140}>
+          <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-2xl mb-16">
+            Solo-shipped, end-to-end. Each one engineered around a parent&apos;s
+            real constraints — and every Claude surface built to keep working
+            when an API key runs out of credits.
+          </p>
         </AnimateIn>
 
         {/* Timeline */}
@@ -106,12 +117,15 @@ export default function Experience() {
                   <div className="group p-6 rounded-2xl bg-elevated border border-border hover:border-accent/25 transition-colors duration-300">
 
                     {/* Header */}
-                    <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
-                      <div>
+                    <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+                      <div className="min-w-0">
                         <h3 className="text-lg font-semibold text-text-primary group-hover:text-accent transition-colors duration-200">
                           {project.title}
                         </h3>
-                        <p className="text-text-secondary text-sm mt-0.5">
+                        <p className="text-accent text-xs font-mono mt-1 tracking-wide">
+                          {project.role}
+                        </p>
+                        <p className="text-text-secondary text-sm mt-1">
                           {project.context}
                         </p>
                       </div>
@@ -125,9 +139,19 @@ export default function Experience() {
                             project.current ? "badge-accent" : "badge"
                           }`}
                         >
-                          {project.current ? "● Current" : "Project"}
+                          {project.current ? "● Current" : "Shipped"}
                         </span>
                       </div>
+                    </div>
+
+                    {/* Headline impact metric */}
+                    <div className="mb-5 -mx-6 px-6 py-3 bg-canvas/60 border-y border-border/60">
+                      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-text-tertiary mb-1">
+                        Impact
+                      </p>
+                      <p className="text-sm font-semibold text-text-primary leading-snug">
+                        {project.headline}
+                      </p>
                     </div>
 
                     {/* Bullets */}
@@ -155,6 +179,18 @@ export default function Experience() {
             ))}
           </div>
         </div>
+
+        {/* Thesis footer */}
+        <AnimateIn variant="fade" delay={200}>
+          <div className="mt-16 rounded-2xl border border-accent/20 bg-elevated p-8">
+            <p className="text-accent font-semibold text-sm uppercase tracking-[0.18em] mb-3">
+              {FOOTER_NOTE.heading}
+            </p>
+            <p className="text-text-secondary text-base md:text-lg leading-relaxed">
+              {FOOTER_NOTE.body}
+            </p>
+          </div>
+        </AnimateIn>
 
       </div>
     </section>

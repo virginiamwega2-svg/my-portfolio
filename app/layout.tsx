@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, JetBrains_Mono, Sora } from "next/font/google";
 import "./globals.css";
 import ScrollProgress from "./components/ScrollProgress";
+import ThemeProvider from "./components/ThemeProvider";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -74,18 +75,21 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${sora.variable} ${fraunces.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        {/* Skip-to-content — first focusable element for keyboard/screen-reader users */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-canvas focus:font-medium focus:text-sm focus:shadow-lg"
-        >
-          Skip to main content
-        </a>
-        <ScrollProgress />
-        {children}
+        <ThemeProvider>
+          {/* Skip-to-content — first focusable element for keyboard/screen-reader users */}
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-accent focus:text-canvas focus:font-medium focus:text-sm focus:shadow-lg"
+          >
+            Skip to main content
+          </a>
+          <ScrollProgress />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

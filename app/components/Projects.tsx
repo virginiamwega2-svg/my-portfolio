@@ -4,17 +4,17 @@ const PROJECTS = [
   {
     number: "01",
     title: "Fit Parent Plan",
-    tagline: "Full-stack fitness system for busy parents.",
+    tagline: "AI-powered fitness coaching for busy parents.",
     year: "2026",
     problem:
-      "Most fitness programs assume clean weeks, fixed gym time, and high energy. Busy parents have unpredictable schedules, so consistency breaks and apps treat it like failure instead of designing for real life.",
+      "Most fitness programs assume clean weeks, fixed gym time, and high energy. Parents have unpredictable schedules — sick kids, missed weeks, low sleep — so consistency breaks and apps treat it like failure instead of designing for real life.",
     impact:
-      "Designed for 10–20 minute sessions and “messy-week” rescue flows, then shipped a production-ready system with CI-gated deploys to Vercel (typecheck/lint/tests/E2E), secure payments, and operational notifications.",
-    stack: ["Next.js (App Router)", "React", "TypeScript", "Tailwind CSS", "SQLite", "Stripe"],
+      "74 parents coached at 4.9/5 across 38 reviews. Two Claude agents (Time-Window planner + Pantry-to-Plate) with streaming + mock fallback, adaptive replanning that survives missed weeks, and a 3-question lead-qualification quiz that filters prospects before they hit the coach — supporting a $199/mo price point.",
+    stack: ["Next.js 15", "TypeScript", "Tailwind v4", "Claude API", "Stripe", "JWT Auth", "n8n", "Playwright"],
     features: [
-      "Time-Window Planner generates a realistic 2-week plan from availability + stress/sleep context",
-      "Auth + member dashboard with persisted tools, progress snapshots, and meal-plan tracking",
-      "Stripe subscriptions + verified webhooks, Zod validation, rate limiting, and Resend notifications",
+      "Two AI agents: \"20-Minute Window\" workout planner + Pantry-to-Plate dinner agent — streaming, with mock fallback so a zero-balance API key never breaks the demo",
+      "Event pipeline → n8n automation: every plan result emits a structured logSession event (planHeadline, planSource, mode, email) that powers the weekly Parent Pulse digest — plus a pagehide listener that auto-saves plans before the browser closes",
+      "IP-based rate limiting (no-auth, x-forwarded-for parsing, resetInMs to client), Stripe Checkout + idempotent webhooks, plan-pause via localStorage, lazy-loaded AI demo for clean mobile Core Web Vitals",
     ],
     demo: "https://fit-parent-plan-platform.vercel.app/",
     github: "https://github.com/virginiamwega2-svg/Fit-Parent-Plan-Platform",
@@ -28,17 +28,17 @@ const PROJECTS = [
   {
     number: "02",
     title: "Hirely",
-    tagline: "Flexible jobs, structured for busy parents.",
+    tagline: "Full-stack AI job platform for parents and caregivers.",
     year: "2024",
     problem:
-      "Flexibility is usually buried in job descriptions, so parents waste time opening listings just to check schedule, remote fit, and hours.",
+      "Job flexibility is invisible on most platforms — buried in paragraphs, not filterable, not comparable. For parents who need that information before they even open a listing, it's a real barrier.",
     impact:
-      "Turned flexibility into structured data (schedule type, remote, hours/day) to power fast discovery, then shipped one-step apply and a lightweight employer workflow to track decisions.",
-    stack: ["Python", "Django", "PostgreSQL", "Bootstrap 5"],
+      "Made flexibility a first-class, structured field (schedule type, remote, hours/day) and layered 10+ production AI features on top — conversational search, CV parsing, auto-screening, empathy emails — each with graceful fallbacks so the app never breaks on an API failure.",
+    stack: ["Django", "PostgreSQL", "Claude API", "Render", "GitHub Actions", "Resend"],
     features: [
-      "Search, sorting, and filters built on structured flexibility data",
-      "One-step apply with guardrails + optional resume upload",
-      "Employer dashboard to manage roles and update applicant statuses",
+      "Conversational search grounded in the live DB via Claude tool use, plus AI-ranked top matches per parsed CV",
+      "Employer-side auto-screening with 1-line summaries + shortlist/hold/decline recs, cached on the Application model",
+      "Weekly digest + stale-job nudge crons, CI-gated deploys (GitHub Actions + Render blueprint), Neon Postgres",
     ],
     demo: "https://hirely-a0lx.onrender.com/",
     github: "https://github.com/virginiamwega2-svg/hirely",
@@ -51,20 +51,20 @@ const PROJECTS = [
   },
   {
     number: "03",
-    title: "PureNest Family Wellness Store",
-    tagline: "Family wellness e-commerce for Canadian households.",
+    title: "PureNest Family",
+    tagline: "Full-stack family wellness e-commerce, built from scratch.",
     year: "2023",
     problem:
-      "A family wellness e-commerce store tailored to Canadian households.",
+      "Most wellness stores are bolted onto rigid templates — no custom checkout, no smart discovery, no visibility into shopper behavior. PureNest needed a fully owned platform purpose-built for a family wellness audience.",
     impact:
-      "Focused on trust and clarity to help shoppers decide quickly.",
-    stack: ["React", "Next.js", "Tailwind CSS"],
+      "Shipped end-to-end: idempotent Stripe webhooks (zero duplicate orders across retries), a Claude-powered shopping assistant, verified-purchase reviews, a server-validated coupon engine, and production-grade security headers (CSP, HSTS, frame/MIME guards).",
+    stack: ["Next.js 16", "React 19", "TypeScript", "PostgreSQL", "Prisma", "Stripe", "Claude API", "NextAuth"],
     features: [
-      "Clean product categories and detail pages",
-      "Fast, simple cart and checkout flow",
-      "Trust-first layout with clear product info",
+      "Stripe Checkout + idempotent webhook handler — processed event IDs persisted so retries never create duplicates",
+      "Conversational AI assistant (Claude API) for contextual product recommendations across 5 wellness categories",
+      "Full auth (email + OAuth + verification + signed reset tokens), verified-purchase reviews, admin dashboard with audit log",
     ],
-    demo: "#",
+    demo: "https://purenest-family.vercel.app/",
     github: "https://github.com/virginiamwega2-svg/purenest-family",
     image: "/projects/purenest-store.svg",
     gradientFrom: "from-emerald-950/50",
@@ -72,30 +72,6 @@ const PROJECTS = [
     accentLine: "#34D399",
     accentDot: "bg-emerald-400",
     accentText: "text-emerald-400",
-  },
-  {
-    number: "04",
-    title: "SchedAI Product Landing Page",
-    tagline: "Scheduling content without adding headcount.",
-    year: "2023",
-    problem:
-      "SchedAI helps ecommerce operators and creator-led brands publish on schedule without adding headcount.",
-    impact:
-      "Clear messaging and flow to move visitors from idea to action.",
-    stack: ["React", "Next.js", "Tailwind CSS"],
-    features: [
-      "Scheduling, approvals, and analytics in one place",
-      "Clear value props and conversion-focused layout",
-      "Fast, mobile-first experience",
-    ],
-    demo: "https://product-landig-page.vercel.app/",
-    github: "https://github.com/virginiamwega2-svg/Product-Landing-Page",
-    image: "/projects/schedai-landing.svg",
-    gradientFrom: "from-sky-950/50",
-    glowColor: "rgba(56,189,248,0.14)",
-    accentLine: "#38BDF8",
-    accentDot: "bg-sky-400",
-    accentText: "text-sky-400",
   },
 ];
 
@@ -122,7 +98,7 @@ export default function Projects() {
         {/* Section label */}
         <AnimateIn>
           <div className="flex items-center gap-4 mb-6">
-            <span className="font-mono text-sm text-accent">03</span>
+            <span className="font-mono text-sm text-accent">04</span>
             <span className="h-px w-10 bg-border" />
             <span className="text-xs uppercase tracking-[0.2em] text-text-secondary">
               Selected Work
@@ -157,7 +133,7 @@ export default function Projects() {
         {/* Cards grid — 2-col on md+, so each card has room to breathe */}
         <div className="grid md:grid-cols-2 gap-5">
           {PROJECTS.map((p, i) => (
-            <AnimateIn key={p.number} variant="scale" delay={i * 100}>
+            <AnimateIn key={p.number} variant="scale" delay={i * 100} className={i === PROJECTS.length - 1 && PROJECTS.length % 2 === 1 ? "md:col-span-2" : ""}>
               <article className="group flex flex-col h-full rounded-2xl overflow-hidden border border-border bg-canvas transition-all duration-500 hover:border-accent/30 hover:-translate-y-1.5 hover:shadow-[0_24px_64px_rgba(0,0,0,0.55)]">
 
                 {/* Thumbnail strip */}

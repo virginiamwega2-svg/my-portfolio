@@ -28,9 +28,62 @@
    ══════════════════════════════════════════════════════════════ */
 
 /* ── Runtime CSS variables (available outside @theme) ──────── */
+/*  Dark is the default. Light theme overrides come from .light  */
 :root {
   --background: #0D0C0B;
   --foreground: #F0EBE3;
+
+  /* Dark-mode runtime values for tokens referenced by @theme inline */
+  --c-canvas:     #0D0C0B;
+  --c-surface:    #111010;
+  --c-elevated:   #171514;
+  --c-overlay:    #1E1B19;
+  --c-border:        #222120;
+  --c-border-subtle: #191716;
+  --c-text-primary:   #F0EBE3;
+  --c-text-secondary: #7A706A;
+  --c-text-tertiary:  #3A3633;
+  --c-text-inverse:   #0D0C0B;
+  --c-grain-opacity: 0.30;
+}
+
+/* ── Light theme — warm cream / paper aesthetic ────────────── */
+:root.light {
+  --background: #FAF7F1;
+  --foreground: #1A1614;
+
+  --c-canvas:     #FAF7F1;
+  --c-surface:    #F2EEE3;
+  --c-elevated:   #ECE6D7;
+  --c-overlay:    #E4DDCB;
+  --c-border:        #D8D0BD;
+  --c-border-subtle: #E6DFCD;
+  --c-text-primary:   #1A1614;
+  --c-text-secondary: #5C534D;
+  --c-text-tertiary:  #9B9088;
+  --c-text-inverse:   #FAF7F1;
+  --c-grain-opacity: 0.12;
+}
+
+/* Smooth theme switch */
+html, body, header, nav, section, article, aside, footer, div, span, p, h1, h2, h3, h4, h5, h6, a, button, input, textarea {
+  transition: background-color 280ms ease, border-color 280ms ease, color 280ms ease;
+}
+
+/* Lock a subtree to dark-theme tokens regardless of html.light/.dark.
+   Use on splash sections (hero) that have a hardcoded dark background
+   so text remains readable when the user is in light mode.            */
+.theme-dark {
+  --c-canvas:     #0D0C0B;
+  --c-surface:    #111010;
+  --c-elevated:   #171514;
+  --c-overlay:    #1E1B19;
+  --c-border:        #222120;
+  --c-border-subtle: #191716;
+  --c-text-primary:   #F0EBE3;
+  --c-text-secondary: #7A706A;
+  --c-text-tertiary:  #3A3633;
+  --c-text-inverse:   #0D0C0B;
 }
 
 /* ── Tailwind v4 Design Tokens ──────────────────────────────── */
@@ -39,21 +92,21 @@
   /* ┌── Backgrounds ─────────────────────────────────────────┐ */
   --color-background:  var(--background);
   --color-foreground:  var(--foreground);
-  --color-canvas:      #0D0C0B;
-  --color-surface:     #111010;
-  --color-elevated:    #171514;
-  --color-overlay:     #1E1B19;
+  --color-canvas:      var(--c-canvas);
+  --color-surface:     var(--c-surface);
+  --color-elevated:    var(--c-elevated);
+  --color-overlay:     var(--c-overlay);
 
   /* ┌── Borders ─────────────────────────────────────────────┐ */
-  --color-border:        #222120;
-  --color-border-subtle: #191716;
+  --color-border:        var(--c-border);
+  --color-border-subtle: var(--c-border-subtle);
   --color-border-focus:  rgba(201, 169, 110, 0.45);
 
   /* ┌── Text ─────────────────────────────────────────────────┐ */
-  --color-text-primary:   #F0EBE3;
-  --color-text-secondary: #7A706A;
-  --color-text-tertiary:  #3A3633;
-  --color-text-inverse:   #0D0C0B;
+  --color-text-primary:   var(--c-text-primary);
+  --color-text-secondary: var(--c-text-secondary);
+  --color-text-tertiary:  var(--c-text-tertiary);
+  --color-text-inverse:   var(--c-text-inverse);
 
   /* ┌── Accent — Warm Gold ───────────────────────────────────┐ */
   --color-accent:              #C9A96E;   /* primary gold          */
@@ -117,8 +170,8 @@ h1, h2, h3 {
 
 /* ── Scrollbar ──────────────────────────────────────────────── */
 ::-webkit-scrollbar              { width: 3px; }
-::-webkit-scrollbar-track        { background: #0D0C0B; }
-::-webkit-scrollbar-thumb        { background: #252220; border-radius: 2px; }
+::-webkit-scrollbar-track        { background: var(--c-canvas); }
+::-webkit-scrollbar-thumb        { background: var(--c-border); border-radius: 2px; }
 ::-webkit-scrollbar-thumb:hover  { background: #C9A96E; }
 
 
@@ -649,6 +702,54 @@ h1, h2, h3 {
   );
   background-size:       300% 300%;
   animation:             gradientShift 5s ease infinite;
+}
+
+/* ── Command palette (search modal) ─────────────────────────── */
+@keyframes cmdOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes cmdPanelIn {
+  from { opacity: 0; transform: translateY(-12px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)     scale(1);    }
+}
+.cmd-overlay {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: cmdOverlayIn 180ms ease both;
+}
+.cmd-panel {
+  /* Force a distinctly brighter background so the modal stands out
+     against the dark backdrop, in both dark and light themes.       */
+  background: #26221F;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.7),
+    0 0   0    1px rgba(201, 169, 110, 0.35),
+    0 0   100px rgba(201, 169, 110, 0.30);
+  animation: cmdPanelIn 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+:root.light .cmd-panel {
+  background: #FFFFFF;
+  box-shadow:
+    0 32px 80px rgba(0, 0, 0, 0.35),
+    0 0   0    1px rgba(201, 169, 110, 0.45),
+    0 0   100px rgba(201, 169, 110, 0.18);
+}
+.cmd-input-row {
+  background: #1A1614;
+}
+:root.light .cmd-input-row {
+  background: #F7F1E3;
+}
+.cmd-close {
+  background: var(--color-accent);
+  color: #0D0C0B;
+  border: none;
+}
+.cmd-close:hover {
+  background: var(--color-accent-dim);
+  transform: scale(1.05);
 }
 
 /* ── Typewriter cursor blink ────────────────────────────────── */

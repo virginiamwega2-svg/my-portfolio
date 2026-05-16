@@ -73,9 +73,8 @@ export default function AnimateIn({
   const classes   = [baseClass, className].filter(Boolean).join(" ");
 
   return (
-    /* @ts-expect-error — ref typing varies by ElementType */
     <Tag
-      ref={ref}
+      ref={ref as React.Ref<HTMLElement>}
       className={classes}
       style={delay ? { transitionDelay: `${delay}ms` } : undefined}
     >

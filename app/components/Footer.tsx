@@ -1,19 +1,21 @@
 "use client";
 
+import { ArrowUp, ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
+
 const NAV_LINKS = [
   { label: "About",      href: "#about"      },
-  { label: "Project Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects",   href: "#projects"   },
   { label: "Skills",     href: "#skills"     },
+  { label: "Services",   href: "#services"   },
+  { label: "Writing",    href: "#blog"       },
   { label: "Contact",    href: "#contact"    },
 ];
 
 const SOCIAL_LINKS = [
-  { label: "GitHub",    href: "https://github.com/virginiamwega2-svg"              },
-  { label: "LinkedIn",  href: "https://linkedin.com/in/virginiamwega2-svg"         },
-  { label: "Twitter",   href: "https://twitter.com/virginiamwega2-svg"             },
-  { label: "Dribbble",  href: "https://dribbble.com/virginiamwega2-svg"            },
+  { label: "GitHub",   href: "https://github.com/virginiamwega2-svg",      icon: Github   },
+  { label: "LinkedIn", href: "https://linkedin.com/in/virginia-mwega",     icon: Linkedin },
+  { label: "Email",    href: "mailto:hello@virginiamwega.dev",             icon: Mail     },
 ];
 
 export default function Footer() {
@@ -30,8 +32,8 @@ export default function Footer() {
               VM.
             </a>
             <p className="mt-4 text-text-secondary text-sm leading-relaxed">
-              Full-stack developer building fast, elegant web
-              applications. Available worldwide.
+              Full-stack &amp; AI engineer building production systems for busy
+              parents. Available worldwide.
             </p>
             <div className="mt-5 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-success status-dot shrink-0" />
@@ -62,19 +64,23 @@ export default function Footer() {
           <div>
             <p className="type-eyebrow mb-5">Connect</p>
             <ul className="flex flex-col gap-3">
-              {SOCIAL_LINKS.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="link-underline inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
-                  >
-                    {link.label}
-                    <span className="text-text-tertiary text-xs">↗</span>
-                  </a>
-                </li>
-              ))}
+              {SOCIAL_LINKS.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <li key={link.href}>
+                    <a
+                      href={link.href}
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="group inline-flex items-center gap-2 text-sm text-text-secondary hover:text-text-primary transition-colors duration-200"
+                    >
+                      <Icon className="h-3.5 w-3.5 text-text-tertiary group-hover:text-accent transition-colors" />
+                      {link.label}
+                      <ArrowUpRight className="h-3 w-3 text-text-tertiary group-hover:text-accent transition-colors" />
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -86,17 +92,13 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Virginia Mwega. All rights reserved.
           </span>
 
-
-
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="group flex items-center gap-2 font-mono text-xs text-text-secondary hover:text-accent transition-colors duration-200"
             aria-label="Scroll back to top"
           >
             Back to top
-            <span className="inline-block group-hover:-translate-y-0.5 transition-transform duration-200">
-              ↑
-            </span>
+            <ArrowUp className="h-3 w-3 group-hover:-translate-y-0.5 transition-transform duration-200" />
           </button>
         </div>
 

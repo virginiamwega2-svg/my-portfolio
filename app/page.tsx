@@ -4,9 +4,14 @@ import About      from "./components/About";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
 import Projects   from "./components/Projects";
+import Testimonials from "./components/Testimonials";
 import Skills     from "./components/Skills";
+import Services from "./components/Services";
+import Blog from "./components/Blog";
+import GithubHeatmap from "./components/GithubHeatmap";
 import Contact    from "./components/Contact";
 import Footer     from "./components/Footer";
+import BackToTop  from "./components/BackToTop";
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -52,10 +57,15 @@ export default function Home() {
         <Experience />
         <Education />
         <Projects />
+        <Testimonials />
         <Skills />
+        <Services />
+        <Blog />
+        <GithubHeatmap />
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }

@@ -1,13 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
   { label: "About",      href: "#about"      },
-  { label: "Project Experience", href: "#experience" },
-  { label: "Education", href: "#education" },
+  { label: "Experience", href: "#experience" },
   { label: "Projects",   href: "#projects"   },
   { label: "Skills",     href: "#skills"     },
+  { label: "Services",   href: "#services"   },
+  { label: "Writing",    href: "#blog"       },
+  { label: "GitHub",     href: "#github"     },
   { label: "Contact",    href: "#contact"    },
 ];
 
@@ -42,7 +46,6 @@ export default function Navbar() {
     return () => observers.forEach((o) => o.disconnect());
   }, []);
 
-  /* ── Close mobile menu on nav click ────────────────────────── */
   const handleNavClick = () => setMenuOpen(false);
 
   return (
@@ -80,14 +83,13 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={[
-                  "relative px-4 py-2 text-sm tracking-wide rounded-full transition-all duration-200 focus-ring",
+                  "relative px-3.5 py-2 text-sm tracking-wide rounded-full transition-all duration-200 focus-ring",
                   isActive
                     ? "text-text-primary"
                     : "text-text-secondary hover:text-text-primary",
                 ].join(" ")}
               >
                 {link.label}
-                {/* Active underline pill */}
                 {isActive && (
                   <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-accent" />
                 )}
@@ -95,52 +97,40 @@ export default function Navbar() {
             );
           })}
 
-          {/* Separator */}
           <span className="w-px h-4 bg-border mx-2" />
 
-          {/* CTA */}
+          <ThemeToggle />
+
           <a
             href="#contact"
-            className="btn btn-primary btn-sm focus-ring"
+            className="ml-2 btn btn-primary btn-sm focus-ring"
           >
             Hire Me
           </a>
         </div>
 
-        {/* ── Hamburger ────────────────────────────────────── */}
-        <button
-          className="md:hidden flex flex-col justify-center gap-[5px] w-9 h-9 rounded-lg border border-border bg-elevated focus-ring"
-          onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-        >
-          <span
-            className={`block mx-auto h-px w-4 bg-text-primary transition-all duration-300 origin-center ${
-              menuOpen ? "rotate-45 translate-y-[5px]" : ""
-            }`}
-          />
-          <span
-            className={`block mx-auto h-px bg-text-primary transition-all duration-300 ${
-              menuOpen ? "opacity-0 w-0" : "w-4"
-            }`}
-          />
-          <span
-            className={`block mx-auto h-px w-4 bg-text-primary transition-all duration-300 origin-center ${
-              menuOpen ? "-rotate-45 -translate-y-[5px]" : ""
-            }`}
-          />
-        </button>
+        {/* ── Mobile right cluster ───────────────────────────── */}
+        <div className="flex md:hidden items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="flex items-center justify-center w-9 h-9 rounded-lg border border-border bg-elevated text-text-primary focus-ring"
+            onClick={() => setMenuOpen((v) => !v)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+          </button>
+        </div>
       </div>
 
       {/* ── Mobile drawer ────────────────────────────────────── */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-350 ease-out ${
-          menuOpen ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
+          menuOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="mt-2 mx-4 mb-4 rounded-2xl border border-border bg-surface overflow-hidden">
 
-          {/* Links */}
           <div className="flex flex-col px-2 pt-3 pb-2 gap-0.5">
             {NAV_LINKS.map((link) => {
               const id      = link.href.slice(1);
@@ -166,10 +156,8 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Divider */}
           <div className="divider mx-4" />
 
-          {/* CTA */}
           <div className="px-4 py-3">
             <a
               href="#contact"
@@ -189,7 +177,6 @@ export default function Navbar() {
         className="md:hidden fixed bottom-5 right-5 z-40 inline-flex items-center gap-2 px-4 py-3 rounded-full bg-accent text-canvas font-semibold shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:bg-accent-dim transition-colors duration-200"
       >
         Hire Me
-        <span className="inline-block">→</span>
       </a>
     </nav>
   );
