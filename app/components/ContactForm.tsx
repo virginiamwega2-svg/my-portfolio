@@ -1,6 +1,7 @@
 "use client";
 
 import { useActionState } from "react";
+import { Loader2 } from "lucide-react";
 import { sendContact, type ContactState } from "../actions/contact";
 
 const INITIAL: ContactState = { status: "idle", message: "" };
@@ -10,7 +11,7 @@ export default function ContactForm() {
 
   if (state.status === "success") {
     return (
-      <div className="flex flex-col items-start gap-4 p-8 rounded-2xl border border-success/25 bg-success-subtle h-full justify-center">
+      <div className="flex flex-col items-start gap-4 p-8 rounded-2xl border border-success/25 bg-success-subtle h-full justify-center animate-[scaleIn_0.5s_var(--ease-spring)_both]">
         <div className="w-10 h-10 rounded-full bg-success/15 border border-success/30 flex items-center justify-center text-success text-lg">
           ✓
         </div>
@@ -25,7 +26,11 @@ export default function ContactForm() {
   }
 
   return (
-    <form action={action} className="flex flex-col gap-5" noValidate>
+    <form
+      action={action}
+      className={`flex flex-col gap-5 transition-opacity duration-200 ${pending ? "opacity-60" : "opacity-100"}`}
+      noValidate
+    >
 
       {/* Name */}
       <div className="flex flex-col gap-1.5">
@@ -40,9 +45,10 @@ export default function ContactForm() {
           name="name"
           type="text"
           required
+          disabled={pending}
           autoComplete="name"
           placeholder="Jane Smith"
-          className="input"
+          className="input disabled:cursor-not-allowed"
         />
       </div>
 
@@ -59,9 +65,10 @@ export default function ContactForm() {
           name="email"
           type="email"
           required
+          disabled={pending}
           autoComplete="email"
           placeholder="jane@company.com"
-          className="input"
+          className="input disabled:cursor-not-allowed"
         />
       </div>
 
@@ -77,9 +84,10 @@ export default function ContactForm() {
           id="cf-message"
           name="message"
           required
+          disabled={pending}
           rows={5}
           placeholder="Tell me about your project, role, or just say hello..."
-          className="input textarea"
+          className="input textarea disabled:cursor-not-allowed"
         />
       </div>
 
@@ -94,9 +102,16 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={pending}
-        className="btn btn-primary btn-md self-start"
+        className="btn btn-primary btn-md self-start disabled:cursor-not-allowed"
       >
-        {pending ? "Sending…" : "Send Message →"}
+        {pending ? (
+          <>
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Sending…
+          </>
+        ) : (
+          "Send Message →"
+        )}
       </button>
 
     </form>

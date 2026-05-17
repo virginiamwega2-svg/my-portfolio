@@ -21,7 +21,10 @@ const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
 });
 
-const BASE_URL = "https://virginiamwega.dev";
+// Placeholder Vercel URL — when you buy a custom domain, swap this one line.
+// Make sure the Vercel project name matches (e.g. "virginia-mwega" gives
+// virginia-mwega.vercel.app) so the canonical URL points where the site lives.
+const BASE_URL = "https://virginia-mwega.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

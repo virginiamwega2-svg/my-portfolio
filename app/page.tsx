@@ -15,7 +15,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type":    "Person",
   name:       "Virginia Mwega",
-  url:        "https://virginiamwega.dev",
+  url:        "https://virginia-mwega.vercel.app",
   jobTitle:   "Full-Stack and AI Engineer",
   description:
     "Full-Stack and AI Engineer shipping production AI products built on Claude tool use, Next.js, Django, and Stripe.",
