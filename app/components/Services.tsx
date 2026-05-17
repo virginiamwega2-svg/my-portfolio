@@ -79,6 +79,10 @@ const SERVICES: Service[] = [
     title: "Technical Writing",
     body:
       "Developer-facing docs, engineering blog posts, and tutorials that lead with the problem, show the diff, and close with the gotcha.",
+    proof: {
+      text: "Engineering blog — idempotent Stripe webhooks: the 30-line pattern I run in production. Zero duplicate orders in 12 months.",
+      href: "https://virginiamwegahashnodedev.hashnode.dev/stripe-idempotent-webhooks",
+    },
     tags: ["Docs", "Tutorials", "MDX"],
     accent: "text-amber-400",
     iconBg: "bg-amber-400/10",
@@ -88,6 +92,10 @@ const SERVICES: Service[] = [
     title: "Content Writing",
     body:
       "Long-form articles and on-brand copy for family wellness, productivity, and parent-focused tech — researched, structured, and tuned for the busy reader.",
+    proof: {
+      text: "Long-form on Medium — a parent-fitness essay arguing the 20-minute window is the workout that fits the life, not a compromise.",
+      href: "https://medium.com/@virginiamwega2/i-asked-74-parents-when-they-actually-train-heres-what-they-said-3eeab158b777",
+    },
     tags: ["Wellness", "Productivity", "Long-form"],
     accent: "text-sky-400",
     iconBg: "bg-sky-400/10",
@@ -177,6 +185,9 @@ export default function Services() {
                       {s.proof.href ? (
                         <a
                           href={s.proof.href}
+                          {...(s.proof.href.startsWith("http")
+                            ? { target: "_blank", rel: "noopener noreferrer" }
+                            : {})}
                           className="text-xs text-text-secondary leading-snug hover:text-accent transition-colors"
                         >
                           {s.proof.text}
