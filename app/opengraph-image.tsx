@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt          = "Virginia Mwega — Full Stack Developer";
+export const alt          = "Virginia Mwega — Full-Stack and AI Engineer";
 export const size         = { width: 1200, height: 630 };
 export const contentType  = "image/png";
 
@@ -92,7 +92,7 @@ export default function Image() {
             marginBottom: "36px",
         }}
       >
-          Full Stack Developer
+          Full-Stack and AI Engineer
         </div>
 
         {/* Tagline */}
@@ -104,8 +104,8 @@ export default function Image() {
             maxWidth: "620px",
         }}
       >
-          Full-stack developer building fast, elegant web applications
-          with React, Next.js, Python, and PostgreSQL.
+          Shipping production AI products built on Claude, Next.js,
+          Django, and Stripe — with graceful fallbacks.
         </div>
 
         {/* Domain */}
@@ -120,7 +120,7 @@ export default function Image() {
             letterSpacing: "0.05em",
           }}
         >
-          virginiamwega.dev
+          virginia-mwega.vercel.app
         </div>
       </div>
     ),
