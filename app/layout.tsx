@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, JetBrains_Mono, Sora } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import ScrollProgress from "./components/ScrollProgress";
 import ThemeProvider from "./components/ThemeProvider";
@@ -24,19 +26,22 @@ const BASE_URL = "https://virginiamwega.dev";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "Virginia Mwega — Full Stack Developer",
+    default: "Virginia Mwega — Full-Stack and AI Engineer",
     template: "%s | Virginia Mwega",
   },
   description:
-    "Full-stack developer based in New York. I build fast, elegant web applications with React, Next.js, Python, and PostgreSQL.",
+    "Full-Stack and AI Engineer based in Nairobi. I ship production AI products built on Claude, Next.js, Django, and Stripe — with graceful fallbacks that keep working when an API key runs out.",
   keywords: [
-    "full stack developer",
-    "full-stack developer",
-    "React",
+    "Full-Stack and AI Engineer",
+    "AI engineer",
+    "Claude API",
     "Next.js",
-    "Python",
+    "React",
     "Django",
     "TypeScript",
+    "Python",
+    "Stripe",
+    "Nairobi developer",
     "portfolio",
   ],
   authors:  [{ name: "Virginia Mwega", url: BASE_URL }],
@@ -46,14 +51,14 @@ export const metadata: Metadata = {
     locale:      "en_US",
     url:         BASE_URL,
     siteName:    "Virginia Mwega",
-    title:       "Virginia Mwega — Full Stack Developer",
-    description: "Full-stack developer based in New York. I build fast, elegant web applications with React, Next.js, Python, and PostgreSQL.",
+    title:       "Virginia Mwega — Full-Stack and AI Engineer",
+    description: "Full-Stack and AI Engineer based in Nairobi. I ship production AI products built on Claude, Next.js, Django, and Stripe.",
   },
   twitter: {
     card:        "summary_large_image",
-    title:       "Virginia Mwega — Full Stack Developer",
-    description: "Full-stack developer based in New York.",
-    creator:     "@virginiamwega",
+    title:       "Virginia Mwega — Full-Stack and AI Engineer",
+    description: "Full-Stack and AI Engineer based in Nairobi. Shipping production AI products with Claude.",
+    creator:     "@veemwega2",
   },
   robots: {
     index:  true,
@@ -89,6 +94,8 @@ export default function RootLayout({
           </a>
           <ScrollProgress />
           {children}
+          <Analytics />
+          <SpeedInsights />
         </ThemeProvider>
       </body>
     </html>

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # blog drafts — local work-in-progress, never deployed or pushed
 /drafts
+
+# CV source (PDF lives in public/)
+cv/

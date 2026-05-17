@@ -7,7 +7,7 @@ import AccentSwitcher from "./AccentSwitcher";
 const SOCIALS = [
   { label: "GitHub",   href: "https://github.com/virginiamwega2-svg",  icon: Github   },
   { label: "LinkedIn", href: "https://linkedin.com/in/virginia-mwega", icon: Linkedin },
-  { label: "Email",    href: "mailto:hello@virginiamwega.dev",         icon: Mail     },
+  { label: "Email",    href: "mailto:virginiamwega2@gmail.com",         icon: Mail     },
 ];
 
 // Hero uses pure CSS keyframe animations so it can stay a Server Component

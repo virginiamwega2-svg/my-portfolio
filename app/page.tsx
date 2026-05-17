@@ -16,28 +16,30 @@ const jsonLd = {
   "@type":    "Person",
   name:       "Virginia Mwega",
   url:        "https://virginiamwega.dev",
-  jobTitle:   "Full Stack Developer",
+  jobTitle:   "Full-Stack and AI Engineer",
   description:
-    "Full-stack developer building fast, elegant web applications with React, Next.js, Python, and PostgreSQL.",
+    "Full-Stack and AI Engineer shipping production AI products built on Claude tool use, Next.js, Django, and Stripe.",
   address: {
     "@type":         "PostalAddress",
-    addressLocality: "New York",
-    addressCountry:  "US",
+    addressLocality: "Nairobi",
+    addressCountry:  "KE",
   },
   sameAs: [
     "https://github.com/virginiamwega2-svg",
     "https://linkedin.com/in/virginia-mwega",
-    "https://twitter.com/virginiamwega",
+    "https://twitter.com/veemwega2",
   ],
   knowsAbout: [
-    "React",
+    "Claude API",
     "Next.js",
+    "React",
     "TypeScript",
     "Python",
     "Django",
     "PostgreSQL",
-    "Node.js",
-    "AWS",
+    "Stripe",
+    "Tailwind CSS",
+    "n8n",
   ],
 };
 

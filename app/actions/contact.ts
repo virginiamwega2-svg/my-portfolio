@@ -40,7 +40,7 @@ export async function sendContact(
 
   const { error } = await resend.emails.send({
     from:    "Portfolio Contact <noreply@virginiamwega.dev>",
-    to:      "hello@virginiamwega.dev",
+    to:      "virginiamwega2@gmail.com",
     replyTo: email,
     subject: `New message from ${name}`,
     text:    `Name:    ${name}\nEmail:   ${email}\n\n${message}`,
@@ -56,7 +56,7 @@ export async function sendContact(
     console.error("[contact]", error);
     return {
       status:  "error",
-      message: "Something went wrong. Please email me directly at hello@virginiamwega.dev",
+      message: "Something went wrong. Please email me directly at virginiamwega2@gmail.com",
     };
   }
   */

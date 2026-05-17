@@ -14,7 +14,7 @@ const NAV_LINKS = [
 const SOCIAL_LINKS = [
   { label: "GitHub",   href: "https://github.com/virginiamwega2-svg",      icon: Github   },
   { label: "LinkedIn", href: "https://linkedin.com/in/virginia-mwega",     icon: Linkedin },
-  { label: "Email",    href: "mailto:hello@virginiamwega.dev",             icon: Mail     },
+  { label: "Email",    href: "mailto:virginiamwega2@gmail.com",             icon: Mail     },
 ];
 
 export default function Footer() {
