@@ -1,5 +1,4 @@
 import AnimateIn from "./AnimateIn";
-import { ImageIcon } from "lucide-react";
 
 const PRINCIPLES = [
   {
@@ -37,7 +36,7 @@ export default function About() {
             <div className="max-w-3xl">
               <h2 className="mb-7 text-4xl font-bold leading-tight text-text-primary md:text-5xl">
                 I ship{" "}
-                <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
+                <span className="gradient-text-animated">
                   AI products
                 </span>{" "}
                 that fit real life.
@@ -76,28 +75,21 @@ export default function About() {
             </div>
           </AnimateIn>
 
-          {/* Round image slot — placeholder for now */}
+          {/* Round portrait — Virginia */}
           <AnimateIn variant="right" delay={120}>
-            <div className="hidden lg:flex lg:justify-center lg:sticky lg:top-28" aria-hidden="true">
-              <div className="relative aspect-square w-72 rounded-full overflow-hidden border-2 border-dashed border-border bg-surface flex flex-col items-center justify-center gap-3 text-text-tertiary shadow-[0_24px_64px_rgba(0,0,0,0.35)]">
-                {/* Subtle dot-grid background */}
-                <div className="absolute inset-0 dot-grid opacity-30" />
-
-                {/* Placeholder content */}
-                <div className="relative flex flex-col items-center gap-2.5 px-6 text-center">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full border border-border bg-elevated">
-                    <ImageIcon className="h-5 w-5 text-text-secondary" />
-                  </div>
-                  <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-text-tertiary">
-                    Photo slot
-                  </p>
-                  <p className="text-xs text-text-tertiary leading-snug">
-                    Drop a square portrait
-                  </p>
-                </div>
-
-                {/* Subtle accent ring */}
-                <div className="absolute inset-2 rounded-full border border-accent/15 pointer-events-none" />
+            <div className="flex justify-center lg:sticky lg:top-28">
+              <div className="group relative aspect-square w-44 sm:w-56 lg:w-72 rounded-full overflow-hidden border border-border bg-surface shadow-[0_24px_64px_rgba(0,0,0,0.35)]">
+                <img
+                  src="/photos/vee-mwega-about.jpeg"
+                  alt="Virginia Mwega"
+                  width={288}
+                  height={288}
+                  loading="lazy"
+                  decoding="async"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
+                />
+                {/* Subtle accent ring that brightens on hover */}
+                <div className="absolute inset-2 rounded-full border border-accent/15 pointer-events-none transition-colors duration-500 group-hover:border-accent/40" />
               </div>
             </div>
           </AnimateIn>

@@ -1,6 +1,6 @@
 import AnimateIn from "./AnimateIn";
 import {
-  Code2, Workflow, FileText, PenLine, Search, ArrowRight, Check,
+  Code2, Workflow, FileText, PenLine, Search, ArrowRight, ArrowUpRight, Check,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -188,9 +188,15 @@ export default function Services() {
                           {...(s.proof.href.startsWith("http")
                             ? { target: "_blank", rel: "noopener noreferrer" }
                             : {})}
-                          className="text-xs text-text-secondary leading-snug hover:text-accent transition-colors"
+                          className="flex flex-col gap-1.5 text-xs text-text-secondary leading-snug hover:text-accent transition-colors"
                         >
-                          {s.proof.text}
+                          <span>{s.proof.text}</span>
+                          {s.proof.href.startsWith("http") && (
+                            <span className="inline-flex items-center gap-1 text-[0.7rem] font-semibold text-accent opacity-80 group-hover:opacity-100 transition-opacity">
+                              Read more
+                              <ArrowUpRight className="h-3 w-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                            </span>
+                          )}
                         </a>
                       ) : (
                         <p className="text-xs text-text-secondary leading-snug">

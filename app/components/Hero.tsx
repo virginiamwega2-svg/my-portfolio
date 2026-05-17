@@ -19,17 +19,17 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col overflow-hidden bg-canvas"
     >
-      {/* Ambient glow orbs — bumped opacity so they read in light mode too */}
+      {/* Ambient glow orbs — slow breathing pulse for depth */}
       <div className="absolute inset-0 pointer-events-none select-none">
-        <div className="absolute top-1/4 right-1/3 w-130 h-130 rounded-full bg-accent/10 blur-3xl" />
-        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 rounded-full bg-accent/8 blur-3xl" />
+        <div className="absolute top-1/4 right-1/3 w-130 h-130 rounded-full bg-accent/10 blur-3xl animate-[heroPulse_8s_ease-in-out_infinite]" />
+        <div className="absolute bottom-1/3 left-1/4 w-80 h-80 rounded-full bg-accent/8 blur-3xl animate-[heroPulse_10s_ease-in-out_infinite] [animation-delay:1.5s]" />
       </div>
 
       {/* Grain overlay */}
       <div className="absolute inset-0 grain pointer-events-none select-none opacity-30" />
 
       {/* Main content — 2-column on lg, single column on smaller screens */}
-      <div className="relative flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full px-6 pt-32 pb-16">
+      <div className="relative flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full px-6 pt-24 sm:pt-32 pb-12 sm:pb-16">
         <div className="grid gap-12 lg:gap-16 lg:grid-cols-[1fr_360px] lg:items-center">
 
           {/* ── Text column ── */}
@@ -57,7 +57,7 @@ export default function Hero() {
               style={{ animationDelay: "0.18s" }}
             >
               Full Stack &amp;{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
+              <span className="gradient-text-animated">
                 AI Engineer
               </span>
               <span className="text-text-tertiary">.</span>
@@ -102,14 +102,14 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-canvas font-semibold rounded-full text-sm hover:bg-accent-dim transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,169,110,0.28)]"
+                className="group inline-flex items-center gap-2 px-5 sm:px-7 py-3.5 bg-accent text-canvas font-semibold rounded-full text-sm hover:bg-accent-dim transition-all duration-300 hover:shadow-[0_0_40px_rgba(201,169,110,0.28)]"
               >
                 View Work
                 <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-200" />
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-text-secondary font-semibold rounded-full text-sm hover:border-accent hover:text-accent transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 sm:px-7 py-3.5 border border-border text-text-secondary font-semibold rounded-full text-sm hover:border-accent hover:text-accent transition-all duration-300"
               >
                 <Mail className="h-4 w-4" />
                 Contact Me
@@ -117,7 +117,7 @@ export default function Hero() {
               <a
                 href="/virginia-mwega-cv.pdf"
                 download
-                className="inline-flex items-center gap-2 px-7 py-3.5 border border-border text-text-secondary font-semibold rounded-full text-sm hover:border-accent/50 hover:text-text-primary transition-all duration-300"
+                className="inline-flex items-center gap-2 px-5 sm:px-7 py-3.5 border border-border text-text-secondary font-semibold rounded-full text-sm hover:border-accent/50 hover:text-text-primary transition-all duration-300"
               >
                 <Download className="h-4 w-4" />
                 Download CV
@@ -157,14 +157,15 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Toolbar — pinned top-right, just below the navbar's Hire Me button */}
+      {/* Toolbar — pinned top-right, just below the navbar's Hire Me button.
+          Compact on mobile: "Theme" label hidden to keep the pill narrow. */}
       <div
-        className="hero-fade-up absolute top-20 sm:top-24 right-4 sm:right-6 z-20 flex flex-col items-end gap-2"
+        className="hero-fade-up flex absolute top-20 sm:top-24 right-4 sm:right-6 z-20 flex-col items-end gap-2"
         style={{ animationDelay: "0s" }}
       >
         <CommandSearch />
-        <div className="flex items-center gap-3 px-3 py-1.5 rounded-full border border-border bg-elevated/80 backdrop-blur">
-          <span className="text-[0.7rem] uppercase tracking-[0.18em] text-text-tertiary font-mono">
+        <div className="flex items-center gap-2 sm:gap-3 px-2.5 sm:px-3 py-1.5 rounded-full border border-border bg-elevated/80 backdrop-blur">
+          <span className="hidden sm:inline text-[0.7rem] uppercase tracking-[0.18em] text-text-tertiary font-mono">
             Theme
           </span>
           <AccentSwitcher />

@@ -15,11 +15,11 @@ type ApiResponse = {
 };
 
 const LEVEL_BG: Record<number, string> = {
-  0: "bg-elevated",
-  1: "bg-accent/25",
-  2: "bg-accent/50",
-  3: "bg-accent/75",
-  4: "bg-accent",
+  0: "bg-white",
+  1: "bg-[#9be9a8]",
+  2: "bg-[#40c463]",
+  3: "bg-[#30a14e]",
+  4: "bg-[#216e39]",
 };
 
 async function fetchContributions(): Promise<ApiResponse | null> {
