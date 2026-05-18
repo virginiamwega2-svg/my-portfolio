@@ -33,12 +33,12 @@ const PROJECTS = [
     problem:
       "Job flexibility is invisible on most platforms — buried in paragraphs, not filterable, not comparable. For parents who need that information before they even open a listing, it's a real barrier.",
     impact:
-      "Made flexibility a first-class, structured field (schedule type, remote, hours/day) and layered 10+ production AI features on top — conversational search, CV parsing, auto-screening, empathy emails — each with graceful fallbacks so the app never breaks on an API failure.",
-    stack: ["Django", "PostgreSQL", "Claude API", "Render", "GitHub Actions", "Resend"],
+      "Made flexibility a first-class, structured field (schedule type, remote, hours/day) and shipped 15+ production features end-to-end: Google OAuth, save-for-later bookmarking, AI job description writer, GDPR compliance suite, mobile sticky nav, IP-based rate limiting, and PostHog + Sentry observability — every AI feature has a graceful fallback so the app never breaks on an API failure.",
+    stack: ["Django", "PostgreSQL", "Claude API", "django-allauth", "PostHog", "Sentry", "Render", "GitHub Actions", "Resend"],
     features: [
-      "Conversational search grounded in the live DB via Claude tool use, plus AI-ranked top matches per parsed CV",
-      "Employer-side auto-screening with 1-line summaries + shortlist/hold/decline recs, cached on the Application model",
-      "Weekly digest + stale-job nudge crons, CI-gated deploys (GitHub Actions + Render blueprint), Neon Postgres",
+      "Google OAuth via django-allauth (one-click sign-in), AI job description writer (employer one-sentence brief → full role spec + requirements via Claude), and save-for-later bookmarking with heart toggle on every listing",
+      "GDPR compliance suite: cookie consent banner, Privacy Policy, Terms of Service, and signed-token email unsubscribe with no extra DB table; robots.txt + auto-generated sitemap.xml for all active listings; application withdrawal with accepted/rejected status guard",
+      "IP-based rate limiting on login, register, and AI chat (Django cache framework, zero third-party packages); PostHog analytics + Sentry error monitoring via env vars; mobile 4-tab sticky bottom nav with iOS safe-area support; CI/CD green on Render with all secrets via environment variables",
     ],
     demo: "https://hirely-a0lx.onrender.com/",
     github: "https://github.com/virginiamwega2-svg/hirely",
