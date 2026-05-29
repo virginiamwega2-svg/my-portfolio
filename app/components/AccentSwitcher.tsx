@@ -14,6 +14,8 @@ const PRESETS: Preset[] = [
   { id: "gold",    name: "Gold",    accent: "#C9A96E", dim: "#A07E47" },
   { id: "violet",  name: "Violet",  accent: "#A78BFA", dim: "#7C3AED" },
   { id: "emerald", name: "Emerald", accent: "#4ADE80", dim: "#10B981" },
+  { id: "sky",     name: "Sky",     accent: "#38BDF8", dim: "#0284C7" },
+  { id: "rose",    name: "Rose",    accent: "#FB7185", dim: "#E11D48" },
 ];
 
 const STORAGE_KEY = "vm-accent";
@@ -47,7 +49,7 @@ export default function AccentSwitcher() {
   };
 
   return (
-    <div className="flex items-center gap-1.5" role="radiogroup" aria-label="Accent color">
+    <div className="flex items-center gap-2 sm:gap-1.5" role="radiogroup" aria-label="Accent color">
       {PRESETS.map((p) => {
         const isActive = mounted && active === p.id;
         return (
@@ -59,7 +61,7 @@ export default function AccentSwitcher() {
             aria-pressed={isActive}
             title={p.name}
             className={[
-              "relative flex items-center justify-center w-6 h-6 rounded-full transition-all duration-200",
+              "relative flex items-center justify-center w-7 h-7 sm:w-6 sm:h-6 rounded-full transition-all duration-200",
               "ring-offset-2 ring-offset-canvas hover:scale-110",
               isActive ? "ring-2 ring-text-primary" : "ring-1 ring-border",
             ].join(" ")}

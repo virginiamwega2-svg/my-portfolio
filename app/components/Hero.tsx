@@ -1,5 +1,5 @@
 import {
-  ArrowRight, Download, Github, Linkedin, Mail, ImageIcon,
+  ArrowRight, Download, Github, Linkedin, Mail, Palette,
 } from "lucide-react";
 import CommandSearch from "./CommandSearch";
 import AccentSwitcher from "./AccentSwitcher";
@@ -29,8 +29,8 @@ export default function Hero() {
       <div className="absolute inset-0 grain pointer-events-none select-none opacity-30" />
 
       {/* Main content — 2-column on lg, single column on smaller screens */}
-      <div className="relative flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full px-6 pt-24 sm:pt-32 pb-12 sm:pb-16">
-        <div className="grid gap-12 lg:gap-16 lg:grid-cols-[1fr_360px] lg:items-center">
+      <div className="relative flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full px-6 pt-24 max-[360px]:pt-44 sm:pt-32 pb-12 sm:pb-16">
+        <div className="grid gap-12 sm:gap-10 lg:gap-16 sm:grid-cols-[1fr_220px] md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_360px] sm:items-center">
 
           {/* ── Text column ── */}
           <div>
@@ -125,33 +125,31 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* ── Image column — placeholder, swap in <Image> when ready ── */}
-          {/* pt-24 leaves clear breathing room between the theme/search    */}
-          {/* toolbar above and the top of the photo card.                  */}
+          {/* ── Image column — Virginia ──
+              Mobile / tablet: centered portrait below the intro text. The
+              floating search/theme toolbar lives top-right, so keeping the
+              photo in normal flow (rather than at the top) avoids any overlap.
+              Desktop (lg): right column; lg:pt-24 clears the toolbar above. */}
           <div
-            className="hero-fade-up hidden lg:block relative pt-24"
+            className="hero-fade-up relative flex justify-center sm:block lg:pt-24"
             style={{ animationDelay: "0.45s" }}
-            aria-hidden="true"
           >
-            <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-dashed border-border bg-surface flex flex-col items-center justify-center gap-3 text-text-tertiary shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
-              {/* Subtle dot-grid background */}
-              <div className="absolute inset-0 dot-grid opacity-30" />
+            <div className="group relative aspect-[3/4] w-56 sm:w-full lg:w-auto rounded-3xl overflow-hidden border border-border bg-surface shadow-[0_24px_64px_rgba(0,0,0,0.4)]">
+              <img
+                src="/photos/vee-mwega-hero.jpeg"
+                alt="Virginia Mwega — Full Stack & AI Engineer"
+                width={360}
+                height={480}
+                decoding="async"
+                fetchPriority="high"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
+              />
 
-              {/* Placeholder content */}
-              <div className="relative flex flex-col items-center gap-3">
-                <div className="flex items-center justify-center w-14 h-14 rounded-2xl border border-border bg-elevated">
-                  <ImageIcon className="h-6 w-6 text-text-secondary" />
-                </div>
-                <p className="font-mono text-xs uppercase tracking-[0.18em] text-text-tertiary">
-                  Photo slot
-                </p>
-                <p className="text-xs text-text-tertiary text-center max-w-[200px]">
-                  Drop a 3:4 portrait into this card
-                </p>
-              </div>
+              {/* Base gradient — grounds the card and lifts the canvas behind it */}
+              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-canvas/55 to-transparent pointer-events-none" />
 
-              {/* Floating accent ring */}
-              <div className="absolute -inset-px rounded-3xl border border-accent/15 pointer-events-none" />
+              {/* Floating accent ring that brightens on hover */}
+              <div className="absolute -inset-px rounded-3xl border border-accent/15 pointer-events-none transition-colors duration-500 group-hover:border-accent/40" />
             </div>
           </div>
         </div>
@@ -164,7 +162,10 @@ export default function Hero() {
         style={{ animationDelay: "0s" }}
       >
         <CommandSearch />
-        <div className="flex items-center gap-2 sm:gap-3 px-2.5 sm:px-3 py-1.5 rounded-full border border-border bg-elevated/80 backdrop-blur">
+        <div className="flex items-center gap-2 sm:gap-3 px-3 py-2 sm:py-1.5 rounded-full border border-border bg-elevated/80 backdrop-blur">
+          {/* Palette icon makes the bare swatches read as a theme picker
+              on mobile, where the "Theme" label is hidden to save space. */}
+          <Palette className="h-3.5 w-3.5 text-text-tertiary shrink-0" aria-hidden="true" />
           <span className="hidden sm:inline text-[0.7rem] uppercase tracking-[0.18em] text-text-tertiary font-mono">
             Theme
           </span>

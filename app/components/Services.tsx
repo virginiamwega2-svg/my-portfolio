@@ -80,8 +80,8 @@ const SERVICES: Service[] = [
     body:
       "Developer-facing docs, engineering blog posts, and tutorials that lead with the problem, show the diff, and close with the gotcha.",
     proof: {
-      text: "Engineering blog — idempotent Stripe webhooks: the 30-line pattern I run in production. Zero duplicate orders in 12 months.",
-      href: "https://virginiamwegahashnodedev.hashnode.dev/stripe-idempotent-webhooks",
+      text: "Engineering blog — idempotent Stripe webhooks: the 30-line pattern I run in production. Zero duplicate orders in 12 months. See the full writing portfolio below.",
+      href: "#writing",
     },
     tags: ["Docs", "Tutorials", "MDX"],
     accent: "text-amber-400",
@@ -93,8 +93,8 @@ const SERVICES: Service[] = [
     body:
       "Long-form articles and on-brand copy for family wellness, productivity, and parent-focused tech — researched, structured, and tuned for the busy reader.",
     proof: {
-      text: "Long-form on Medium — a parent-fitness essay arguing the 20-minute window is the workout that fits the life, not a compromise.",
-      href: "https://medium.com/@virginiamwega2/i-asked-74-parents-when-they-actually-train-heres-what-they-said-3eeab158b777",
+      text: "Long-form on Medium — a parent-fitness essay arguing the 20-minute window is the workout that fits the life, not a compromise. See the full writing portfolio below.",
+      href: "#writing",
     },
     tags: ["Wellness", "Productivity", "Long-form"],
     accent: "text-sky-400",

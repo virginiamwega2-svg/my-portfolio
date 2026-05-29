@@ -45,3 +45,6 @@ next-env.d.ts
 
 # CV source (PDF lives in public/)
 cv/
+
+# Claude Code local tooling, settings, and memory — never deployed or pushed
+.claude/

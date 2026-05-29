@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   Search, X, User, Briefcase, FolderGit2,
-  Wrench, Sparkles, Github, Mail, CornerDownLeft,
+  Wrench, Sparkles, PenLine, Github, Mail, CornerDownLeft,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -20,6 +20,7 @@ const SECTIONS: Section[] = [
   { id: "projects",   label: "Projects",   hint: "Selected work",       icon: FolderGit2    },
   { id: "skills",     label: "Skills",     hint: "Tech stack",          icon: Wrench        },
   { id: "services",   label: "Services",   hint: "What I do",           icon: Sparkles      },
+  { id: "writing",    label: "Writing",    hint: "Blog, essays, more",  icon: PenLine       },
   { id: "github",     label: "GitHub",     hint: "Contribution graph",  icon: Github        },
   { id: "contact",    label: "Contact",    hint: "Get in touch",        icon: Mail          },
 ];
@@ -95,9 +96,9 @@ export default function CommandSearch() {
         type="button"
         onClick={() => setOpen(true)}
         aria-label="Open search"
-        className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-elevated text-text-secondary hover:text-text-primary hover:border-accent/50 transition-all duration-200 text-sm"
+        className="group inline-flex items-center gap-2 px-3.5 py-2 sm:py-1.5 rounded-full border border-border bg-elevated text-text-secondary hover:text-text-primary hover:border-accent/50 transition-all duration-200 text-sm"
       >
-        <Search className="h-3.5 w-3.5" />
+        <Search className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
         <span>Search</span>
         <kbd className="hidden sm:inline-flex items-center gap-0.5 ml-1 px-1.5 py-0.5 rounded text-[0.65rem] font-mono border border-border bg-canvas text-text-tertiary">
           ⌘K
@@ -200,8 +201,8 @@ export default function CommandSearch() {
               )}
             </ul>
 
-            {/* Footer hints */}
-            <div className="flex items-center justify-between gap-3 px-5 py-2.5 border-t border-border bg-canvas/60 text-[0.7rem] text-text-tertiary font-mono">
+            {/* Footer hints — keyboard-only, so hidden on touch / mobile */}
+            <div className="hidden sm:flex items-center justify-between gap-3 px-5 py-2.5 border-t border-border bg-canvas/60 text-[0.7rem] text-text-tertiary font-mono">
               <span className="flex items-center gap-3">
                 <span className="inline-flex items-center gap-1">
                   <kbd className="px-1.5 py-0.5 rounded border border-border bg-canvas">↑</kbd>

@@ -6,6 +6,7 @@ import Projects   from "./components/Projects";
 import Testimonials from "./components/Testimonials";
 import Skills     from "./components/Skills";
 import Services from "./components/Services";
+import Writing from "./components/Writing";
 import GithubHeatmap from "./components/GithubHeatmap";
 import Contact    from "./components/Contact";
 import Footer     from "./components/Footer";
@@ -59,6 +60,7 @@ export default function Home() {
         <Testimonials />
         <Skills />
         <Services />
+        <Writing />
         <GithubHeatmap />
         <Contact />
       </main>

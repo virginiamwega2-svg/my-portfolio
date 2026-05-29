@@ -154,7 +154,7 @@ html, body, header, nav, section, article, aside, footer, div, span, p, h1, h2, 
    GLOBAL BASE
    ══════════════════════════════════════════════════════════════ */
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: clip; }
 
 body {
   background: var(--background);
