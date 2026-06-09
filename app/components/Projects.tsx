@@ -3,6 +3,30 @@ import AnimateIn from "./AnimateIn";
 const PROJECTS = [
   {
     number: "01",
+    title: "FamNest",
+    tagline: "An AI wellness coach for parents of young kids.",
+    year: "2026",
+    problem:
+      "Parents of under-5s are among the most stretched and least-served people there are. Every wellness app assumes an hour and a quiet room they don't have — so the advice never fits the day they're actually living.",
+    impact:
+      "A 30-second daily check-in (mood, stress, sleep, available time) returns a small, realistic plan — three doable actions, a journaling prompt, and a sleep tip — sized to the day the parent actually has, plus trend tracking, scheduled email nudges, and a weekly AI report. Honesty is a hard requirement: no fake social proof, transparent AI. Free tier live in production; paid tier built and gated behind a clean \"coming soon\" pending local KYC.",
+    stack: ["Next.js", "Supabase", "OpenAI", "Postgres RLS", "Flutterwave", "Resend", "PostHog", "Vercel"],
+    features: [
+      "AI that degrades gracefully: gpt-4o-mini generates each daily plan, wrapped in a hand-authored, input-aware fallback that returns a realistic plan if the model is unavailable — so a check-in never errors out",
+      "Supabase Postgres with row-level security on every table, a signup trigger that provisions the user + free subscription on first login, and a Postgres-function rate limiter — no external service added",
+      "Payments re-architected from Stripe to Flutterwave under a geographic constraint (Stripe unavailable locally), with webhook verification and an in-app cancel flow; scheduled + transactional email via Resend, product analytics via PostHog, cron on Vercel",
+    ],
+    demo: "https://famnest-iota.vercel.app/",
+    github: "https://github.com/virginiamwega2-svg/Famnest",
+    image: "/projects/famnest.svg",
+    gradientFrom: "from-rose-950/50",
+    glowColor: "rgba(251,113,133,0.14)",
+    accentLine: "#FB7185",
+    accentDot: "bg-rose-400",
+    accentText: "text-rose-400",
+  },
+  {
+    number: "02",
     title: "Fit Parent Plan",
     tagline: "AI-powered fitness coaching for busy parents.",
     year: "2026",
@@ -26,7 +50,7 @@ const PROJECTS = [
     accentText: "text-violet-400",
   },
   {
-    number: "02",
+    number: "03",
     title: "Hirely",
     tagline: "Full-stack AI job platform for parents and caregivers.",
     year: "2024",
@@ -50,7 +74,7 @@ const PROJECTS = [
     accentText: "text-accent",
   },
   {
-    number: "03",
+    number: "04",
     title: "PureNest Family",
     tagline: "Full-stack family wellness e-commerce, built from scratch.",
     year: "2023",
