@@ -2,6 +2,18 @@ import AnimateIn from "./AnimateIn";
 
 const PROJECTS = [
   {
+    title:   "FamNest",
+    role:    "Solo Full-Stack & AI Engineer",
+    context: "AI wellness coach for parents of young kids — production",
+    period:  "2026 — Now",
+    current: true,
+    headline: "Free tier live in production · AI plans that never fail · Stripe → Flutterwave re-platform",
+    bullets: [
+      "Owned the full product end-to-end — Supabase schema with row-level security, OpenAI plan generation wrapped in a hand-authored fallback so a check-in never fails, Flutterwave billing re-architected from Stripe under a geographic constraint, plus scheduled email and cron.",
+    ],
+    stack: ["Next.js", "Supabase", "OpenAI", "Postgres RLS", "Flutterwave", "Resend", "PostHog", "Vercel"],
+  },
+  {
     title:   "Fit Parent Plan",
     role:    "Solo Full-Stack & AI Engineer",
     context: "AI fitness coaching — production, paying users",
@@ -42,7 +54,7 @@ const PROJECTS = [
 const FOOTER_NOTE = {
   heading: "What runs through every project",
   body:
-    "Three production AI products, one thesis: software designed around messy weeks, not happy paths. Every Claude surface ships with a graceful fallback. Every payment flow handles retries idempotently. Every schema decision is deliberate — built to be reliable for the parents who actually use it.",
+    "Four production AI products, one thesis: software designed around messy weeks, not happy paths. Every AI surface ships with a graceful fallback. Every payment flow handles retries idempotently. Every schema decision is deliberate — built to be reliable for the parents who actually use it.",
 };
 
 export default function Experience() {
@@ -64,7 +76,7 @@ export default function Experience() {
         {/* Headline */}
         <AnimateIn variant="left" delay={80}>
           <h2 className="text-4xl md:text-5xl font-bold text-text-primary tracking-tight leading-tight mb-6">
-            Three AI products,{" "}
+            Four AI products,{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-accent to-accent-dim">
               one thesis.
             </span>
@@ -73,7 +85,7 @@ export default function Experience() {
         <AnimateIn variant="left" delay={140}>
           <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-2xl mb-16">
             Solo-shipped, end-to-end. Each one engineered around a parent&apos;s
-            real constraints — and every Claude surface built to keep working
+            real constraints — and every AI surface built to keep working
             when an API key runs out of credits.
           </p>
         </AnimateIn>
