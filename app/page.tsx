@@ -4,7 +4,6 @@ import About      from "./components/About";
 import Experience from "./components/Experience";
 import Projects   from "./components/Projects";
 import Skills     from "./components/Skills";
-import Services from "./components/Services";
 import Writing from "./components/Writing";
 import GithubHeatmap from "./components/GithubHeatmap";
 import Contact    from "./components/Contact";
@@ -57,7 +56,6 @@ export default function Home() {
         <Experience />
         <Projects />
         <Skills />
-        <Services />
         <Writing />
         <GithubHeatmap />
         <Contact />

@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import {
   Search, X, User, Briefcase, FolderGit2,
-  Wrench, Sparkles, PenLine, Github, Mail, CornerDownLeft,
+  Wrench, PenLine, Github, Mail, CornerDownLeft,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -19,7 +19,6 @@ const SECTIONS: Section[] = [
   { id: "experience", label: "Experience", hint: "Project work",        icon: Briefcase     },
   { id: "projects",   label: "Projects",   hint: "Selected work",       icon: FolderGit2    },
   { id: "skills",     label: "Skills",     hint: "Tech stack",          icon: Wrench        },
-  { id: "services",   label: "Services",   hint: "What I do",           icon: Sparkles      },
   { id: "writing",    label: "Writing",    hint: "Blog, essays, more",  icon: PenLine       },
   { id: "github",     label: "GitHub",     hint: "Contribution graph",  icon: Github        },
   { id: "contact",    label: "Contact",    hint: "Get in touch",        icon: Mail          },
