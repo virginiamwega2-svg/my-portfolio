@@ -5,7 +5,7 @@ import AnimateIn from "./AnimateIn";
 import { Layers, LayoutGrid } from "lucide-react";
 import {
   SiNextdotjs, SiReact, SiTypescript, SiJavascript, SiTailwindcss, SiHtml5,
-  SiNodedotjs, SiPostgresql, SiPrisma, SiSupabase,
+  SiNodedotjs, SiPython, SiDjango, SiPostgresql, SiPrisma, SiSupabase,
   SiAnthropic, SiOpenai, SiLangchain, SiN8N,
   SiStripe, SiAuth0, SiGithubactions, SiVercel,
   SiRender, SiGit, SiGithub,
@@ -22,6 +22,8 @@ const SKILLS: Skill[] = [
   { name: "Tailwind CSS",    icon: SiTailwindcss,   color: "#38BDF8" },
   { name: "HTML5",           icon: SiHtml5,         color: "#E34F26" },
   { name: "Node.js",         icon: SiNodedotjs,     color: "#5FA04E" },
+  { name: "Python",          icon: SiPython,        color: "#3776AB" },
+  { name: "Django",          icon: SiDjango,        color: "#0C4B33" },
   { name: "PostgreSQL",      icon: SiPostgresql,    color: "#4169E1" },
   { name: "Prisma",          icon: SiPrisma,        color: "#2D3748" },
   { name: "Supabase",        icon: SiSupabase,      color: "#3ECF8E" },
