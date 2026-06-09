@@ -28,17 +28,17 @@ const PROJECTS = [
   {
     number: "02",
     title: "Fit Parent Plan",
-    tagline: "AI-powered fitness coaching for busy parents.",
+    tagline: "AI-powered fitness platform for busy parents.",
     year: "2026",
     problem:
-      "Most fitness programs assume clean weeks, fixed gym time, and high energy. Parents have unpredictable schedules — sick kids, missed weeks, low sleep — so consistency breaks and apps treat it like failure instead of designing for real life.",
+      "Busy parents abandon fitness programs because every plan assumes ideal conditions — a sick kid or a brutal work week, and they restart from zero two months later. Generic apps hand over a static PDF and disappear; there's no fast, judgment-free way to adapt the plan to the week a parent is actually having.",
     impact:
-      "74 parents coached at 4.9/5 across 38 reviews. Two Claude agents (Time-Window planner + Pantry-to-Plate) with streaming + mock fallback, adaptive replanning that survives missed weeks, and a 3-question lead-qualification quiz that filters prospects before they hit the coach — supporting a $199/mo price point.",
-    stack: ["Next.js 15", "TypeScript", "Tailwind v4", "Claude API", "Stripe", "JWT Auth", "n8n", "Playwright"],
+      "Designed, built, and shipped a production AI fitness product end to end — schema to deployed UI — in a single 100% TypeScript codebase. Three live AI features on the Anthropic SDK (generate plan, generate workout, adapt last plan), each server-validated with Zod, and a $0-credit mock fallback that keeps the product fully usable when the key is unavailable, so the UI never breaks. AI widgets lazy-load off the critical path for sub-second perceived load; static where it can be, dynamic where it matters.",
+    stack: ["Next.js 15", "TypeScript", "Claude API", "Zod", "n8n", "Vercel"],
     features: [
-      "Two AI agents: \"20-Minute Window\" workout planner + Pantry-to-Plate dinner agent — streaming, with mock fallback so a zero-balance API key never breaks the demo",
-      "Event pipeline → n8n automation: every plan result emits a structured logSession event (planHeadline, planSource, mode, email) that powers the weekly Parent Pulse digest — plus a pagehide listener that auto-saves plans before the browser closes",
-      "IP-based rate limiting (no-auth, x-forwarded-for parsing, resetInMs to client), Stripe Checkout + idempotent webhooks, plan-pause via localStorage, lazy-loaded AI demo for clean mobile Core Web Vitals",
+      "AI check-in turns free-text into a 20-minute, parent-friendly plan (headline, steps, confidence score, reasoning); a pantry-to-plate agent parses fridge contents into a meal plus a gap shopping list",
+      "Automation pipeline: anonymous session tracking → n8n lead-nurture flow feeding a weekly Parent Pulse digest, with a pagehide email-recovery hook so plans are never lost on tab close",
+      "IP-based daily rate limiting with reset time returned to the client (no DB write per request), email/password auth + protected dashboard, and live per-call observability surfacing real cost + latency ($0.00xx · NNNms)",
     ],
     demo: "https://fit-parent-plan-platform.vercel.app/",
     github: "https://github.com/virginiamwega2-svg/Fit-Parent-Plan-Platform",

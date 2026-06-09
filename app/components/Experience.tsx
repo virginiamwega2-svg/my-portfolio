@@ -15,15 +15,15 @@ const PROJECTS = [
   },
   {
     title:   "Fit Parent Plan",
-    role:    "Solo Full-Stack & AI Engineer",
-    context: "AI fitness coaching — production, paying users",
+    role:    "Solo Fullstack Developer (design → build → ship)",
+    context: "AI-powered fitness platform — production",
     period:  "2026 — Now",
     current: true,
-    headline: "74 parents coached · 4.9 / 5 across 38 reviews · $199/mo",
+    headline: "3 live AI features on the Anthropic SDK · $0-credit mock fallback · sub-second perceived load",
     bullets: [
-      "Owned the full product from rough idea to revenue: schema, AI agents, Stripe, auth, CRO landing, event pipeline, deploy.",
+      "Designed, built, and shipped end-to-end — schema → server action → streamed UI in 100% TypeScript — with three Zod-validated Claude features (generate plan, generate workout, adapt last plan), an n8n lead-nurture pipeline, IP-based rate limiting, and live per-call cost + latency observability.",
     ],
-    stack: ["Next.js 15", "TypeScript", "Tailwind v4", "Claude API", "Stripe", "JWT Auth", "n8n", "Playwright"],
+    stack: ["Next.js 15", "TypeScript", "Claude API", "Zod", "n8n", "Vercel"],
   },
   {
     title:   "Hirely",
