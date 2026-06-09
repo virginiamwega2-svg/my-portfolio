@@ -5,10 +5,10 @@ import AnimateIn from "./AnimateIn";
 import { Layers, LayoutGrid } from "lucide-react";
 import {
   SiNextdotjs, SiReact, SiTypescript, SiJavascript, SiTailwindcss, SiHtml5,
-  SiNodedotjs, SiPython, SiDjango, SiPostgresql, SiPrisma, SiSupabase,
+  SiNodedotjs, SiPostgresql, SiPrisma, SiSupabase,
   SiAnthropic, SiOpenai, SiLangchain, SiN8N,
   SiStripe, SiAuth0, SiGithubactions, SiVercel,
-  SiRender, SiDocker, SiGit, SiGithub,
+  SiRender, SiGit, SiGithub,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
 
@@ -22,8 +22,6 @@ const SKILLS: Skill[] = [
   { name: "Tailwind CSS",    icon: SiTailwindcss,   color: "#38BDF8" },
   { name: "HTML5",           icon: SiHtml5,         color: "#E34F26" },
   { name: "Node.js",         icon: SiNodedotjs,     color: "#5FA04E" },
-  { name: "Python",          icon: SiPython,        color: "#3776AB" },
-  { name: "Django",          icon: SiDjango,        color: "#0C4B33" },
   { name: "PostgreSQL",      icon: SiPostgresql,    color: "#4169E1" },
   { name: "Prisma",          icon: SiPrisma,        color: "#2D3748" },
   { name: "Supabase",        icon: SiSupabase,      color: "#3ECF8E" },
@@ -36,7 +34,6 @@ const SKILLS: Skill[] = [
   { name: "GitHub Actions",  icon: SiGithubactions, color: "#2088FF" },
   { name: "Vercel",          icon: SiVercel,        color: "#FFFFFF" },
   { name: "Render",          icon: SiRender,        color: "#46E3B7" },
-  { name: "Docker",          icon: SiDocker,        color: "#2496ED" },
   { name: "Git",             icon: SiGit,           color: "#F05032" },
   { name: "GitHub",          icon: SiGithub,        color: "#FFFFFF" },
 ];
