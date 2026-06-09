@@ -30,7 +30,7 @@ const SERVICES: Service[] = [
       "Production hardening — rate limits, security headers, CI checks",
     ],
     proof: {
-      text: "Shipped end-to-end in Fit Parent Plan — 74 paying parents, 4.9 / 5 across 38 reviews.",
+      text: "Shipped Fit Parent Plan end-to-end — three Zod-validated AI features with a $0-credit mock fallback so the UI never breaks.",
       href: "#projects",
     },
     tags: ["Next.js", "Django", "Claude API", "Stripe"],
