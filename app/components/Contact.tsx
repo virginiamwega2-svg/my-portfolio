@@ -2,7 +2,6 @@ import AnimateIn from "./AnimateIn";
 import ContactForm from "./ContactForm";
 import { ArrowUpRight, Github, Linkedin, Mail } from "lucide-react";
 
-// TODO: verify LinkedIn URL slug matches your real profile before deploy.
 const SOCIALS = [
   { name: "GitHub",   handle: "@virginiamwega2-svg", href: "https://github.com/virginiamwega2-svg", icon: Github   },
   { name: "LinkedIn", handle: "in/virginia-mwega",   href: "https://linkedin.com/in/virginia-mwega", icon: Linkedin },

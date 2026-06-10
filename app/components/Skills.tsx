@@ -42,16 +42,16 @@ const SKILLS: Skill[] = [
 
 const PILLARS = [
   {
-    title: "AI with safety nets",
-    body: "Every AI surface has a graceful fallback. The app never breaks when an API key runs out of credits.",
+    title: "Boring tech on purpose",
+    body: "Proven, well-understood infrastructure by default. I add complexity only where the product actually earns it.",
   },
   {
-    title: "Production discipline",
-    body: "Idempotent webhooks, response caching, env-based secrets, CI-gated deploys. The boring parts that keep products steady.",
+    title: "Typed end-to-end",
+    body: "TypeScript and validated schemas from database to UI, so refactors stay safe and the next developer moves fast.",
   },
   {
-    title: "Built for messy weeks",
-    body: "Designed around real-life interruption — missed weeks, low sleep, sick kids — not idealised happy paths.",
+    title: "Owned, not glued together",
+    body: "Auth, rate limiting, and payment flows built in-house where it matters — third-party services only where they pull their weight.",
   },
 ];
 
