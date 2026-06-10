@@ -55,11 +55,14 @@ export default function Hero() {
 
             {/* Tagline — slightly smaller */}
             <p
-              className="hero-fade-up text-text-secondary text-base md:text-lg max-w-xl leading-relaxed mb-8"
+              className="hero-fade-up text-text-secondary text-base md:text-lg max-w-2xl leading-relaxed mb-8"
               style={{ animationDelay: "0.28s" }}
             >
-              AI-powered products for busy parents — from conversational coaching
-              to AI hiring. Production systems with paying users.
+              I build the whole stack and the brain on top of it — Postgres
+              schemas, auth, and payments under the hood; AI-powered coaching,
+              hiring, and commerce on the surface. Four production apps for busy
+              parents, every AI feature with a graceful fallback so it never
+              breaks.
             </p>
 
             {/* Socials */}
