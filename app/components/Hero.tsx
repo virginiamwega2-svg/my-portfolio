@@ -1,7 +1,6 @@
 import {
   ArrowRight, Download, Github, Linkedin, Mail, Palette,
 } from "lucide-react";
-import CommandSearch from "./CommandSearch";
 import AccentSwitcher from "./AccentSwitcher";
 
 const SOCIALS = [
@@ -34,15 +33,6 @@ export default function Hero() {
 
           {/* ── Text column ── */}
           <div>
-            {/* Available badge */}
-            <div
-              className="hero-fade-up inline-flex items-center gap-2.5 px-4 py-1.5 mb-10 w-fit rounded-full border border-border bg-elevated text-text-secondary text-sm"
-              style={{ animationDelay: "0s" }}
-            >
-              <span className="status-dot w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
-              Available for new projects
-            </div>
-
             {/* Name */}
             <p
               className="hero-fade-up text-text-secondary text-xs font-medium tracking-[0.22em] uppercase mb-4"
@@ -127,8 +117,8 @@ export default function Hero() {
 
           {/* ── Image column — Virginia ──
               Mobile / tablet: centered portrait below the intro text. The
-              floating search/theme toolbar lives top-right, so keeping the
-              photo in normal flow (rather than at the top) avoids any overlap.
+              floating theme toolbar lives top-right, so keeping the photo in
+              normal flow (rather than at the top) avoids any overlap.
               Desktop (lg): right column; lg:pt-24 clears the toolbar above. */}
           <div
             className="hero-fade-up relative flex justify-center sm:block lg:pt-24"
@@ -161,7 +151,6 @@ export default function Hero() {
         className="hero-fade-up flex absolute top-20 sm:top-24 right-4 sm:right-6 z-20 flex-col items-end gap-2"
         style={{ animationDelay: "0s" }}
       >
-        <CommandSearch />
         <div className="flex items-center gap-2 sm:gap-3 px-3 py-2 sm:py-1.5 rounded-full border border-border bg-elevated/80 backdrop-blur">
           {/* Palette icon makes the bare swatches read as a theme picker
               on mobile, where the "Theme" label is hidden to save space. */}
