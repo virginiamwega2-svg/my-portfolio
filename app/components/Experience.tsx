@@ -33,7 +33,7 @@ const PROJECTS = [
     current: false,
     headline: "10+ production AI features · graceful fallback on every surface",
     bullets: [
-      "Designed and shipped 10+ Claude-powered AI features end-to-end — conversational search, CV parsing, AI-ranked matches, auto-screening, and empathy emails — each with a graceful fallback when the API key runs dry.",
+      "Designed and shipped 10+ Claude-powered AI features end-to-end — conversational search, CV parsing, AI-ranked matches, auto-screening, and empathy emails — each one built to degrade cleanly, not crash, when the model is unavailable.",
     ],
     stack: ["Django", "PostgreSQL (Neon)", "Claude API", "Render", "GitHub Actions", "Resend"],
   },
@@ -54,7 +54,7 @@ const PROJECTS = [
 const FOOTER_NOTE = {
   heading: "What runs through every project",
   body:
-    "Four production AI products, one thesis: software designed around messy weeks, not happy paths. Every AI surface ships with a graceful fallback. Every payment flow handles retries idempotently. Every schema decision is deliberate — built to be reliable for the parents who actually use it.",
+    "One discipline carries all four. Every AI surface ships with a fallback, so a dead API key degrades the feature instead of crashing it. Every payment flow handles retries idempotently. Every schema decision is deliberate — built to stay dependable for the parents who actually use it.",
 };
 
 export default function Experience() {
@@ -84,9 +84,9 @@ export default function Experience() {
         </AnimateIn>
         <AnimateIn variant="left" delay={140}>
           <p className="text-text-secondary text-base md:text-lg leading-relaxed max-w-2xl mb-16">
-            Solo-shipped, end-to-end. Each one engineered around a parent&apos;s
-            real constraints — and every AI surface built to keep working
-            when an API key runs out of credits.
+            Solo-shipped, end-to-end — each one engineered around the
+            constraints of a real parent&apos;s week: sick kids, brutal
+            workloads, no quiet hour to spare.
           </p>
         </AnimateIn>
 
