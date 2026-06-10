@@ -28,7 +28,7 @@ export default function Hero() {
       <div className="absolute inset-0 grain pointer-events-none select-none opacity-30" />
 
       {/* Main content — 2-column on lg, single column on smaller screens */}
-      <div className="relative flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full px-6 pt-24 max-[360px]:pt-44 sm:pt-32 pb-12 sm:pb-16">
+      <div className="relative flex-1 flex flex-col justify-center max-w-6xl mx-auto w-full px-6 pt-36 max-[360px]:pt-44 sm:pt-32 pb-12 sm:pb-16">
         <div className="grid gap-12 sm:gap-10 lg:gap-16 sm:grid-cols-[1fr_220px] md:grid-cols-[1fr_280px] lg:grid-cols-[1fr_360px] sm:items-center">
 
           {/* ── Text column ── */}
