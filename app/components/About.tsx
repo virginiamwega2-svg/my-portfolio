@@ -1,20 +1,5 @@
 import AnimateIn from "./AnimateIn";
 
-const PRINCIPLES = [
-  {
-    title: "Practical by default",
-    body: "I design around real schedules, messy edge cases, and the small moments where software either saves time or creates more work.",
-  },
-  {
-    title: "Clear under the hood",
-    body: "I like tidy data models, secure flows, useful validation, and interfaces that make the next step obvious.",
-  },
-  {
-    title: "Built to hold up",
-    body: "From webhooks to CI checks, I care about the parts users do not see because they are what keep a product dependable.",
-  },
-];
-
 export default function About() {
   return (
     <section id="about" className="relative overflow-hidden bg-canvas py-32">
@@ -94,25 +79,6 @@ export default function About() {
               </div>
             </div>
           </AnimateIn>
-        </div>
-
-        {/* Principles — full-width row, balanced against the main column above */}
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
-          {PRINCIPLES.map((item, index) => (
-            <AnimateIn key={item.title} variant="up" delay={120 + index * 90}>
-              <article className="h-full rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:border-accent/30 hover:bg-elevated">
-                <span className="font-mono text-xs text-accent">
-                  0{index + 1}
-                </span>
-                <h3 className="mt-4 mb-2 text-lg font-semibold leading-snug text-text-primary">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-text-secondary leading-relaxed">
-                  {item.body}
-                </p>
-              </article>
-            </AnimateIn>
-          ))}
         </div>
       </div>
     </section>
