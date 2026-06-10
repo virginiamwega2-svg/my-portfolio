@@ -45,21 +45,23 @@ export default function About() {
               <div className="space-y-5 text-base leading-[1.8] text-text-secondary md:text-lg">
                 <p>
                   I&apos;m Virginia Mwega, a Full-Stack &amp; AI Engineer. I
-                  build production systems with Claude tool use, structured
+                  build production systems on Claude — tool use, structured
                   outputs, response caching, and graceful fallbacks — the kind
-                  of AI that never breaks when an API key runs out of credits.
+                  of AI that keeps working even when the API key runs out of
+                  credits.
                 </p>
                 <p>
-                  My work is drawn to family, wellness, and flexible work:
-                  products for busy parents who need software designed around
-                  messy weeks, not happy paths. Three production AI products
-                  shipped, with real users and real metrics.
+                  I build for family, wellness, and flexible work: software for
+                  busy parents, designed around messy weeks instead of happy
+                  paths. Four production AI products shipped — real users, real
+                  metrics, real payments.
                 </p>
                 <p>
-                  I own the path from rough idea to shipped feature — schema,
-                  API, AI integration, auth, payments, CI, and the operational
-                  details (idempotent webhooks, cached AI responses, security
-                  headers) that keep a product steady after launch.
+                  I own the whole path from rough idea to shipped feature —
+                  schema, API, AI integration, auth, payments, and CI — plus the
+                  operational details that keep a product steady long after
+                  launch: idempotent webhooks, cached AI responses, and hardened
+                  security headers.
                 </p>
               </div>
 
