@@ -4,17 +4,17 @@ const PROJECTS = [
   {
     number: "01",
     title: "FamNest",
-    tagline: "An AI wellness coach for parents of young kids.",
+    tagline: "An AI wellness coach for exhausted parents.",
     year: "2026",
     problem:
-      "Parents of under-5s are among the most stretched and least-served people there are. Every wellness app assumes an hour and a quiet room they don't have — so the advice never fits the day they're actually living.",
+      "Working parents of young kids are chronically depleted and have no time for \"wellness\" — and most apps only add to the load. The bar I set: ask 30 seconds of input and give back one small, doable thing that fits the day they're actually having.",
     impact:
-      "A 30-second daily check-in (mood, stress, sleep, available time) returns a small, realistic plan — three doable actions, a journaling prompt, and a sleep tip — sized to the day the parent actually has, plus trend tracking, scheduled email nudges, and a weekly AI report. Honesty is a hard requirement: no fake social proof, transparent AI. Free tier live in production; paid tier built and gated behind a clean \"coming soon\" pending local KYC.",
-    stack: ["Next.js", "Supabase", "OpenAI", "Postgres RLS", "Flutterwave", "Resend", "PostHog", "Vercel"],
+      "Turned a single LLM call into a small multi-agent pipeline — a coach that drafts the plan, a safety reviewer that screens for crisis, a memory layer that tracks each parent's trends, and lightweight RAG that grounds advice in vetted guidance — so a 30-second daily check-in (mood, stress, sleep, time, goal) returns a warm, personalized micro-plan. Runs in production at zero API cost on a free model, with a deterministic safety floor for crisis cases that holds independent of the model.",
+    stack: ["Next.js 16", "React 19", "Supabase", "Postgres RLS", "Groq", "Llama 3.3 70B", "Tailwind v4", "Vercel"],
     features: [
-      "AI that degrades gracefully: gpt-4o-mini generates each daily plan, wrapped in a hand-authored, input-aware fallback that returns a realistic plan if the model is unavailable — so a check-in never errors out",
-      "Supabase Postgres with row-level security on every table, a signup trigger that provisions the user + free subscription on first login, and a Postgres-function rate limiter — no external service added",
-      "Payments re-architected from Stripe to Flutterwave under a geographic constraint (Stripe unavailable locally), with webhook verification and an in-app cancel flow; scheduled + transactional email via Resend, product analytics via PostHog, cron on Vercel",
+      "Orchestrated multi-agent pipeline instead of one prompt: a coach agent drafts a history-aware plan around the parent's worst lever (sleep, stress, or mood), a safety-reviewer agent screens each draft (ok / revise / crisis) through a bounded revise loop, and a memory layer summarizes each parent's trends back into the next plan",
+      "Deterministic crisis floor: a keyword guard escalates self-harm language to curated support resources, independent of the probabilistic model — real end-to-end testing caught two safety bugs a code review missed (the offline path had no crisis handling; the LLM classifier was non-deterministic on crisis)",
+      "Lightweight lexical RAG grounds advice in a curated, sourced wellness corpus (chosen over vector embeddings — free and serverless-appropriate) with provenance on every plan; a provider-swappable LLM layer runs at zero cost on Groq's free tier, with a deterministic fallback plan when the model is down, all on Supabase RLS + rate limiting",
     ],
     demo: "https://famnest-iota.vercel.app/",
     github: "https://github.com/virginiamwega2-svg/Famnest",

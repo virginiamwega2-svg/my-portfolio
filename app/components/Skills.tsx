@@ -6,11 +6,18 @@ import { Layers, LayoutGrid } from "lucide-react";
 import {
   SiNextdotjs, SiReact, SiTypescript, SiJavascript, SiTailwindcss, SiHtml5,
   SiNodedotjs, SiPython, SiDjango, SiPostgresql, SiPrisma, SiSupabase,
-  SiAnthropic, SiOpenai, SiLangchain, SiN8N,
+  SiAnthropic, SiLangchain, SiN8N,
   SiStripe, SiAuth0, SiGithubactions, SiVercel,
   SiRender, SiGit, SiGithub,
 } from "react-icons/si";
 import type { IconType } from "react-icons";
+
+// Groq has no brand icon in react-icons; use a simple inline bolt glyph.
+const SiGroq: IconType = (props) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13l0-8Z" />
+  </svg>
+);
 
 type Skill = { name: string; icon: IconType; color: string };
 
@@ -28,7 +35,7 @@ const SKILLS: Skill[] = [
   { name: "Prisma",          icon: SiPrisma,        color: "#2D3748" },
   { name: "Supabase",        icon: SiSupabase,      color: "#3ECF8E" },
   { name: "Claude API",      icon: SiAnthropic,     color: "#C9A96E" },
-  { name: "OpenAI",          icon: SiOpenai,        color: "#FFFFFF" },
+  { name: "Groq",            icon: SiGroq,          color: "#F55036" },
   { name: "LangChain",       icon: SiLangchain,     color: "#1C3C3C" },
   { name: "n8n",             icon: SiN8N,           color: "#EA4B71" },
   { name: "Stripe",          icon: SiStripe,        color: "#635BFF" },

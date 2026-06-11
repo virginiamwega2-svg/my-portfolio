@@ -4,14 +4,14 @@ const PROJECTS = [
   {
     title:   "FamNest",
     role:    "Solo Full-Stack & AI Engineer",
-    context: "AI wellness coach for parents of young kids — production",
+    context: "AI wellness coach for exhausted parents — production",
     period:  "2026 — Now",
     current: true,
-    headline: "Free tier live in production · AI plans that never fail · Stripe → Flutterwave re-platform",
+    headline: "Live in production · multi-agent pipeline with a safety reviewer · zero API cost on a free model",
     bullets: [
-      "Owned the full product end-to-end — Supabase schema with row-level security, OpenAI plan generation wrapped in a hand-authored fallback so a check-in never fails, Flutterwave billing re-architected from Stripe under a geographic constraint, plus scheduled email and cron.",
+      "Owned the full product end-to-end — turned a single LLM call into a small multi-agent pipeline (coach drafts, safety reviewer screens for crisis, memory layer tracks each parent's trends, lightweight RAG grounds advice in vetted guidance), behind a deterministic crisis floor that holds independent of the model. Supabase Postgres with row-level security and rate limiting, a provider-swappable LLM layer running at zero cost on Groq's free tier, and a deterministic fallback plan so a check-in never fails.",
     ],
-    stack: ["Next.js", "Supabase", "OpenAI", "Postgres RLS", "Flutterwave", "Resend", "PostHog", "Vercel"],
+    stack: ["Next.js 16", "React 19", "Supabase", "Postgres RLS", "Groq", "Llama 3.3 70B", "Tailwind v4", "Vercel"],
   },
   {
     title:   "Fit Parent Plan",
