@@ -4,7 +4,7 @@ const PROJECTS = [
   {
     number: "01",
     title: "FamNest",
-    tagline: "An AI wellness coach for exhausted parents.",
+    tagline: "An AI wellness coach for exhausted parents. 2 parents in daily use.",
     year: "2026",
     problem:
       "Working parents of young kids are chronically depleted and have no time for \"wellness\" — and most apps only add to the load. The bar I set: ask 30 seconds of input and give back one small, doable thing that fits the day they're actually having.",

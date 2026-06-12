@@ -7,7 +7,7 @@ const PROJECTS = [
     context: "AI wellness coach for exhausted parents — production",
     period:  "2026 — Now",
     current: true,
-    headline: "Live in production · multi-agent pipeline with a safety reviewer · zero API cost on a free model",
+    headline: "2 parents in daily use · multi-agent pipeline with a safety reviewer · zero API cost on a free model",
     bullets: [
       "Owned the full product end-to-end — turned a single LLM call into a small multi-agent pipeline (coach drafts, safety reviewer screens for crisis, memory layer tracks each parent's trends, lightweight RAG grounds advice in vetted guidance), behind a deterministic crisis floor that holds independent of the model. Supabase Postgres with row-level security and rate limiting, a provider-swappable LLM layer running at zero cost on Groq's free tier, and a deterministic fallback plan so a check-in never fails.",
     ],
@@ -31,9 +31,9 @@ const PROJECTS = [
     context: "AI hiring platform for parents and caregivers",
     period:  "2024 — 2025",
     current: false,
-    headline: "10+ production AI features · graceful fallback on every surface",
+    headline: "10+ production AI features · Claude API live and credit-wired across every surface",
     bullets: [
-      "Designed and shipped 10+ Claude-powered AI features end-to-end — conversational search, CV parsing, AI-ranked matches, auto-screening, and empathy emails — each one built to degrade cleanly, not crash, when the model is unavailable.",
+      "Designed and shipped 10+ Claude-powered AI features end-to-end — conversational search, CV parsing, AI-ranked matches, auto-screening, and empathy emails — all live in production with real API credits.",
     ],
     stack: ["Django", "PostgreSQL (Neon)", "Claude API", "Render", "GitHub Actions", "Resend"],
   },
@@ -54,7 +54,7 @@ const PROJECTS = [
 const FOOTER_NOTE = {
   heading: "What runs through every project",
   body:
-    "One discipline carries all four. Every AI surface ships with a fallback, so a dead API key degrades the feature instead of crashing it. Every payment flow handles retries idempotently. Every schema decision is deliberate — built to stay dependable for the parents who actually use it.",
+    "One discipline carries all four. Every AI feature is live and credit-wired — real API calls, real production traffic, not mocked or stubbed. Every payment flow handles retries idempotently. Every schema decision is deliberate — built to stay dependable for the parents who actually use it.",
 };
 
 export default function Experience() {

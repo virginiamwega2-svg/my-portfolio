@@ -6,7 +6,7 @@ import { Layers, LayoutGrid } from "lucide-react";
 import {
   SiNextdotjs, SiReact, SiTypescript, SiJavascript, SiTailwindcss, SiHtml5,
   SiNodedotjs, SiPython, SiDjango, SiPostgresql, SiPrisma, SiSupabase,
-  SiAnthropic, SiLangchain, SiN8N,
+  SiAnthropic, SiN8N,
   SiStripe, SiAuth0, SiGithubactions, SiVercel,
   SiRender, SiGit, SiGithub,
 } from "react-icons/si";
@@ -36,7 +36,6 @@ const SKILLS: Skill[] = [
   { name: "Supabase",        icon: SiSupabase,      color: "#3ECF8E" },
   { name: "Claude API",      icon: SiAnthropic,     color: "#C9A96E" },
   { name: "Groq",            icon: SiGroq,          color: "#F55036" },
-  { name: "LangChain",       icon: SiLangchain,     color: "#1C3C3C" },
   { name: "n8n",             icon: SiN8N,           color: "#EA4B71" },
   { name: "Stripe",          icon: SiStripe,        color: "#635BFF" },
   { name: "NextAuth",        icon: SiAuth0,         color: "#EB5424" },

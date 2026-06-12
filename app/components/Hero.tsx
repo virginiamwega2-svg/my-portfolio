@@ -61,8 +61,7 @@ export default function Hero() {
               I build the whole stack and the brain on top of it — Postgres
               schemas, auth, and payments under the hood; AI-powered coaching,
               hiring, and commerce on the surface. Four production apps for busy
-              parents, every AI feature with a graceful fallback so it never
-              breaks.
+              parents — AI live and credit-wired across every one.
             </p>
 
             {/* Socials */}
