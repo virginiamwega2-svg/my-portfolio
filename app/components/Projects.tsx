@@ -18,7 +18,7 @@ const PROJECTS = [
     ],
     demo: "https://famnest-iota.vercel.app/",
     github: "https://github.com/virginiamwega2-svg/Famnest",
-    image: "/projects/famnest.png",
+    image: "/projects/famnest.webp",
     gradientFrom: "from-rose-950/50",
     glowColor: "rgba(251,113,133,0.14)",
     accentLine: "#FB7185",
@@ -42,7 +42,7 @@ const PROJECTS = [
     ],
     demo: "https://fit-parent-plan-platform.vercel.app/",
     github: "https://github.com/virginiamwega2-svg/Fit-Parent-Plan-Platform",
-    image: "/projects/fit-parent-plan.png",
+    image: "/projects/fit-parent-plan.webp",
     gradientFrom: "from-violet-950/60",
     glowColor: "rgba(139,92,246,0.14)",
     accentLine: "#7C3AED",
@@ -66,7 +66,7 @@ const PROJECTS = [
     ],
     demo: "https://hirely-a0lx.onrender.com/",
     github: "https://github.com/virginiamwega2-svg/hirely",
-    image: "/projects/hirely-job-board.png",
+    image: "/projects/hirely-job-board.webp",
     gradientFrom: "from-amber-950/50",
     glowColor: "rgba(201,169,110,0.14)",
     accentLine: "#C9A96E",
@@ -90,7 +90,7 @@ const PROJECTS = [
     ],
     demo: "https://purenest-family.vercel.app/",
     github: "https://github.com/virginiamwega2-svg/purenest-family",
-    image: "/projects/purenest-store.png",
+    image: "/projects/purenest-store.webp",
     gradientFrom: "from-emerald-950/50",
     glowColor: "rgba(52,211,153,0.14)",
     accentLine: "#34D399",
@@ -168,7 +168,7 @@ export default function Projects() {
                   <img
                     src={p.image}
                     alt={`${p.title} screenshot`}
-                    className="absolute inset-0 w-full h-full object-cover opacity-90"
+                    className="absolute inset-0 w-full h-full object-cover object-top"
                     loading="lazy"
                   />
                   {/* Radial hover glow */}
@@ -178,8 +178,10 @@ export default function Projects() {
                       background: `radial-gradient(ellipse at 50% 110%, ${p.glowColor}, transparent 65%)`,
                     }}
                   />
-                  {/* Gradient wash for legibility */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${p.gradientFrom} via-elevated to-canvas opacity-75`} />
+                  {/* Light accent tint — keeps each card's color identity without hazing the screenshot */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${p.gradientFrom} to-transparent opacity-25 mix-blend-multiply`} />
+                  {/* Bottom fade — grounds the watermark number + accent rule against the image */}
+                  <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-canvas/95 via-canvas/40 to-transparent" />
                   {/* Dot-grid texture */}
                   <div className="absolute inset-0 dot-grid opacity-20" />
                   {/* Watermark number */}
