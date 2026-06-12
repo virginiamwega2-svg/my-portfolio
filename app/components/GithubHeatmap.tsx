@@ -15,7 +15,7 @@ type ApiResponse = {
 };
 
 const LEVEL_BG: Record<number, string> = {
-  0: "bg-white",
+  0: "bg-elevated",
   1: "bg-[#9be9a8]",
   2: "bg-[#40c463]",
   3: "bg-[#30a14e]",

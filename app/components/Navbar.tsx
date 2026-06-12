@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Coffee, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
@@ -170,28 +170,18 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* ── Mobile sticky CTA bar — Coffee + Hire Me ──────────
-          Both buttons use theme-aware tokens so they read
-          correctly in both light and dark mode. */}
+      {/* ── Mobile sticky CTA bar — Hire Me ───────────────────
+          Uses theme-aware tokens so it reads correctly in
+          both light and dark mode. */}
       <div
         className={[
-          "md:hidden fixed bottom-5 left-5 right-5 z-40 flex items-center justify-between gap-3 transition-all duration-300",
+          "md:hidden fixed bottom-5 left-5 right-5 z-40 flex items-center justify-center transition-all duration-300",
           menuOpen ? "opacity-0 translate-y-3 pointer-events-none" : "opacity-100",
         ].join(" ")}
       >
         <a
-          href="https://buymeacoffee.com/virginiamwega"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Buy me a coffee"
-          className="inline-flex items-center gap-1.5 px-4 py-3 rounded-full border border-border bg-elevated/95 backdrop-blur text-text-primary font-semibold text-sm shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:border-accent hover:text-accent transition-colors duration-200"
-        >
-          <Coffee className="h-4 w-4" />
-          Coffee
-        </a>
-        <a
           href="#contact"
-          className="inline-flex items-center gap-2 px-4 py-3 rounded-full bg-accent text-canvas font-semibold text-sm shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:bg-accent-dim transition-colors duration-200"
+          className="inline-flex items-center justify-center gap-2 w-full px-4 py-3.5 rounded-full bg-accent text-canvas font-semibold text-sm shadow-[0_10px_30px_rgba(0,0,0,0.35)] hover:bg-accent-dim transition-colors duration-200"
         >
           Hire Me
         </a>

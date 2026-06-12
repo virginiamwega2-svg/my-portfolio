@@ -38,7 +38,7 @@ export default function About() {
                   I build for family, wellness, and flexible work: software for
                   busy parents, designed around messy weeks instead of happy
                   paths. Four production AI products shipped — real users, real
-                  metrics, real payments.
+                  payments, live in production today.
                 </p>
                 <p>
                   I own the whole path from rough idea to shipped feature —

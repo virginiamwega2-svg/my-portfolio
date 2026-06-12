@@ -17,7 +17,7 @@ const jsonLd = {
   url:        "https://virginia-mwega.vercel.app",
   jobTitle:   "Full-Stack and AI Engineer",
   description:
-    "Full-Stack and AI Engineer shipping production AI products built on Claude tool use, Next.js, Django, and Stripe.",
+    "Full-Stack and AI Engineer shipping production AI products — multi-agent pipelines, RAG, and tool use on Claude and open models — full-stack on Next.js, Django, and Postgres.",
   address: {
     "@type":         "PostalAddress",
     addressLocality: "Nairobi",
@@ -30,12 +30,17 @@ const jsonLd = {
   ],
   knowsAbout: [
     "Claude API",
+    "LLM tool use",
+    "AI agents",
+    "Multi-agent systems",
+    "Retrieval-Augmented Generation (RAG)",
     "Next.js",
     "React",
     "TypeScript",
     "Python",
     "Django",
     "PostgreSQL",
+    "Supabase",
     "Stripe",
     "Tailwind CSS",
     "n8n",
