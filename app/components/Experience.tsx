@@ -17,7 +17,7 @@ const PROJECTS = [
     title:   "Fit Parent Plan",
     role:    "Solo Fullstack Developer (design → build → ship)",
     context: "AI-powered fitness platform — production",
-    period:  "2026 — Now",
+    period:  "2025 — Now",
     current: true,
     headline: "3 live AI features on the Anthropic SDK · $0-credit mock fallback · sub-second perceived load",
     bullets: [
@@ -29,7 +29,7 @@ const PROJECTS = [
     title:   "Hirely",
     role:    "Solo builder — product, backend, AI, deployment",
     context: "AI hiring platform for parents and caregivers",
-    period:  "2024 — 2025",
+    period:  "2025",
     current: false,
     headline: "10+ production AI features · Claude API live and credit-wired across every surface",
     bullets: [
@@ -41,7 +41,7 @@ const PROJECTS = [
     title:   "PureNest Family",
     role:    "Solo Full-Stack Engineer",
     context: "AI-assisted family wellness e-commerce",
-    period:  "2023",
+    period:  "2025",
     current: false,
     headline: "Zero duplicate orders across all Stripe webhook retries",
     bullets: [

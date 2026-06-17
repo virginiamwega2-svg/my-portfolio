@@ -29,7 +29,7 @@ const PROJECTS = [
     number: "02",
     title: "Fit Parent Plan",
     tagline: "AI-powered fitness platform for busy parents.",
-    year: "2026",
+    year: "2025",
     problem:
       "Busy parents abandon fitness programs because every plan assumes ideal conditions — a sick kid or a brutal work week, and they restart from zero two months later. Generic apps hand over a static PDF and disappear; there's no fast, judgment-free way to adapt the plan to the week a parent is actually having.",
     impact:
@@ -53,7 +53,7 @@ const PROJECTS = [
     number: "03",
     title: "Hirely",
     tagline: "Full-stack AI job platform for parents and caregivers.",
-    year: "2024",
+    year: "2025",
     problem:
       "Job flexibility is invisible on most platforms — buried in paragraphs, not filterable, not comparable. For parents who need that information before they even open a listing, it's a real barrier.",
     impact:
@@ -77,7 +77,7 @@ const PROJECTS = [
     number: "04",
     title: "PureNest Family",
     tagline: "Full-stack family wellness e-commerce, built from scratch.",
-    year: "2023",
+    year: "2025",
     problem:
       "Most wellness stores are bolted onto rigid templates — no custom checkout, no smart discovery, no visibility into shopper behavior. PureNest needed a fully owned platform purpose-built for a family wellness audience.",
     impact:
