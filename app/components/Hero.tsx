@@ -1,5 +1,5 @@
 import {
-  ArrowRight, Download, Github, Linkedin, Mail, Palette,
+  ArrowRight, Github, Linkedin, Mail, Palette,
 } from "lucide-react";
 import AccentSwitcher from "./AccentSwitcher";
 
@@ -105,14 +105,6 @@ export default function Hero() {
               >
                 <Mail className="h-4 w-4" />
                 Contact Me
-              </a>
-              <a
-                href="/virginia-mwega-cv.pdf"
-                download
-                className="inline-flex items-center gap-2 px-5 sm:px-7 py-3.5 border border-border text-text-secondary font-semibold rounded-full text-sm hover:border-accent/50 hover:text-text-primary transition-all duration-300"
-              >
-                <Download className="h-4 w-4" />
-                Download CV
               </a>
             </div>
           </div>
